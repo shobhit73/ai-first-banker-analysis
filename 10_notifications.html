@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#9f403d",
+                        "surface-container-low": "#f1f4f7",
+                        "on-surface-variant": "#586065",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#f8f7ff",
+                        "background": "#f8f9fb",
+                        "on-surface": "#2b3438",
+                        "surface-container": "#eaeef2",
+                        "primary": "#0c56d0",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#624ac3",
+                        "secondary": "#525f7f"
+                    },
+                    "fontFamily": {
+                        "inter": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0c56d0;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0c56d0;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 10;
+            border-color: #e2e8f0;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 2.5rem;
+            height: 1.25rem;
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 1rem;
+            height: 1rem;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(1.25rem);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger</h1>
+<p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-inter text-sm antialiased">Dashboard</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span>
+<span class="font-inter text-sm antialiased">Customers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-inter text-sm antialiased">Tasks</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="03_ai_meeting_brief.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span class="font-inter text-sm antialiased">Meetings</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="05_documents_workbench.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+<span class="font-inter text-sm antialiased">Documents</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="04_post_meeting_follow_up.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shortcut</span>
+<span class="font-inter text-sm antialiased">Follow-ups</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="06_blockers.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">block</span>
+<span class="font-inter text-sm antialiased">Blockers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-blue-700 dark:text-blue-400 font-bold flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-950/50 rounded-md shadow-sm" href="07_settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-inter text-sm antialiased">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-6 border-t border-slate-200 dark:border-slate-800">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+<span class="font-inter text-sm antialiased">Support</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="font-inter text-sm antialiased">Sign Out</span>
+</a>
+</div>
+</aside>
+
+<div class="flex-1 flex flex-col min-w-0 ml-64">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">Sovereign Ledger</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search setting..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2 ring-2 ring-slate-100 cursor-pointer text-center">
+    <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 p-8 max-w-[1200px] mx-auto w-full flex gap-10">
+    
+    <!-- Settings Sidebar -->
+    <div class="w-64 shrink-0">
+        <h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-8">Settings</h2>
+        <nav class="space-y-1">
+            <a href="07_settings.html" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                AI Copilot Rules
+            </a>
+            <a href="08_integrations.html" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Integrations
+            </a>
+            <a href="09_profile.html" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Profile & Account
+            </a>
+            <a href="10_notifications.html" class="block px-4 py-2.5 rounded-lg text-sm font-bold bg-primary/10 text-primary transition-colors">
+                Notifications
+            </a>
+        </nav>
+    </div>
+
+    <!-- Settings Content Area -->
+    <div class="flex-1 space-y-8">
+        
+        <!-- Notification Center Section -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+            <div class="p-8 border-b border-slate-100 flex items-center gap-3">
+                <span class="material-symbols-outlined text-slate-500">notifications_active</span>
+                <div>
+                  <h3 class="text-lg font-bold text-on-surface">Notification Center</h3>
+                  <p class="text-sm text-slate-500">Configure how and when you want to receive alerts from Sovereign.</p>
+                </div>
+            </div>
+
+            <table class="w-full text-left">
+                <thead class="bg-slate-50 text-[10px] uppercase font-black tracking-widest text-slate-400">
+                    <tr>
+                        <th class="px-8 py-4">Event Type</th>
+                        <th class="px-4 py-4 text-center">In-App</th>
+                        <th class="px-4 py-4 text-center">Email</th>
+                        <th class="px-4 py-4 text-center">Push</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <!-- Row 1: Meeting Briefs -->
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-8 py-5">
+                            <h4 class="text-sm font-bold text-on-surface">Meeting Briefs Ready</h4>
+                            <p class="text-[10px] text-slate-500 mt-0.5">Alert when AI has prepped your context for the next call.</p>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" checked id="ib_brief" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="ib_brief" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" checked id="email_brief" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="email_brief" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" id="push_brief" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="push_brief" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Row 2: Critical Blockers -->
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-8 py-5">
+                            <h4 class="text-sm font-bold text-on-surface">Critical Blocker Detected</h4>
+                            <p class="text-[10px] text-slate-500 mt-0.5">Immediate alert for deals and renewals stuck in internal silos.</p>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" checked id="ib_blocker" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="ib_blocker" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" checked id="email_blocker" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="email_blocker" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" checked id="push_blocker" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="push_blocker" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Row 3: Follow-up Drafts -->
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-8 py-5">
+                            <h4 class="text-sm font-bold text-on-surface">Follow-up Drafts Ready</h4>
+                            <p class="text-[10px] text-slate-500 mt-0.5">AI suggests email content immediately after post-meeting concluded.</p>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" checked id="ib_follow" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="ib_follow" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" id="email_follow" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="email_follow" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-5">
+                            <div class="flex justify-center items-center">
+                                <div class="relative inline-block w-10 align-middle select-none">
+                                    <input type="checkbox" id="push_follow" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-2 appearance-none opacity-0 z-10 cursor-pointer"/>
+                                    <label for="push_follow" class="toggle-label block overflow-hidden h-5 rounded-full bg-gray-300 cursor-pointer"></label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Summary Digest Section -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+             <div class="flex items-center gap-3 mb-6">
+                 <span class="material-symbols-outlined text-primary">calendar_view_week</span>
+                 <h3 class="text-lg font-bold text-on-surface">Weekly Summary Digest</h3>
+             </div>
+             <p class="text-sm text-slate-500 max-w-lg mb-6 leading-relaxed">Choose when you'd like to receive a comprehensive AI-generated performance and portfolio health summary.</p>
+             <div class="flex gap-3">
+                 <button class="px-5 py-2.5 bg-primary/10 text-primary border-2 border-primary rounded-xl text-xs font-bold uppercase tracking-wide">Friday Afternoon</button>
+                 <button class="px-5 py-2.5 bg-white border border-slate-200 text-slate-500 rounded-xl text-xs font-bold uppercase tracking-wide hover:bg-slate-50 transition-all">Monday Morning</button>
+                 <button class="px-5 py-2.5 bg-white border border-slate-200 text-slate-500 rounded-xl text-xs font-bold uppercase tracking-wide hover:bg-slate-50 transition-all">Disabled</button>
+             </div>
+        </section>
+
+        <div class="flex justify-end pt-4">
+            <button class="px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-opacity shadow-sm">Save Changes</button>
+        </div>
+
+    </div>
+</main>
+</div>
+</body></html>

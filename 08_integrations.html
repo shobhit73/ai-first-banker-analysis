@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Integrations Hub | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#9f403d",
+                        "surface-container-low": "#f1f4f7",
+                        "on-surface-variant": "#586065",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#f8f7ff",
+                        "background": "#f8f9fb",
+                        "on-surface": "#2b3438",
+                        "surface-container": "#eaeef2",
+                        "primary": "#0c56d0",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#624ac3",
+                        "secondary": "#525f7f"
+                    },
+                    "fontFamily": {
+                        "inter": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger</h1>
+<p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-inter text-sm antialiased">Dashboard</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span>
+<span class="font-inter text-sm antialiased">Customers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-inter text-sm antialiased">Tasks</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="03_ai_meeting_brief.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span class="font-inter text-sm antialiased">Meetings</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="05_documents_workbench.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+<span class="font-inter text-sm antialiased">Documents</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="04_post_meeting_follow_up.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shortcut</span>
+<span class="font-inter text-sm antialiased">Follow-ups</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="06_blockers.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">block</span>
+<span class="font-inter text-sm antialiased">Blockers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-blue-700 dark:text-blue-400 font-bold flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-950/50 rounded-md shadow-sm" href="07_settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-inter text-sm antialiased">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-6 border-t border-slate-200 dark:border-slate-800">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+<span class="font-inter text-sm antialiased">Support</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="font-inter text-sm antialiased">Sign Out</span>
+</a>
+</div>
+</aside>
+
+<div class="flex-1 flex flex-col min-w-0 ml-64">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">Sovereign Ledger</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search setting..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2 ring-2 ring-slate-100 cursor-pointer text-center">
+    <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 p-8 max-w-[1200px] mx-auto w-full flex gap-10">
+    
+    <!-- Settings Sidebar -->
+    <div class="w-64 shrink-0">
+        <h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-8">Settings</h2>
+        <nav class="space-y-1">
+            <a href="07_settings.html" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                AI Copilot Rules
+            </a>
+            <a href="08_integrations.html" class="block px-4 py-2.5 rounded-lg text-sm font-bold bg-primary/10 text-primary transition-colors">
+                Integrations
+            </a>
+            <a href="09_profile.html" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Profile & Account
+            </a>
+            <a href="10_notifications.html" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Notifications
+            </a>
+        </nav>
+    </div>
+
+    <!-- Settings Content Area -->
+    <div class="flex-1 space-y-8">
+        
+        <!-- Integrations Header -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+            <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                <span class="material-symbols-outlined text-slate-500">cable</span>
+                <div>
+                    <h3 class="text-lg font-bold text-on-surface">Integrations Hub</h3>
+                    <p class="text-sm text-slate-500">Manage data flow between Sovereign Ledger and your enterprise tools.</p>
+                </div>
+                <button class="ml-auto px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:opacity-90 transition-opacity">Add New</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Salesforce -->
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-100 group relative">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2 border border-slate-100">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Salesforce.com_logo.png" alt="Salesforce">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-on-surface">Salesforce CRM</h4>
+                            <p class="text-[10px] text-green-600 font-bold tracking-widest uppercase">Connected</p>
+                        </div>
+                        <button class="ml-auto text-slate-400 hover:text-error transition-colors">
+                            <span class="material-symbols-outlined text-sm">settings</span>
+                        </button>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-[11px]">
+                            <span class="text-slate-500">Sync Frequency</span>
+                            <span class="text-on-surface font-bold">Every 15 min</span>
+                        </div>
+                        <div class="flex justify-between text-[11px]">
+                            <span class="text-slate-500">Last Successful Sync</span>
+                            <span class="text-on-surface font-bold">2 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex-1 py-1.5 bg-white border border-slate-200 text-[10px] font-bold rounded hover:bg-slate-100 uppercase transition-all">Force Sync</button>
+                        <button class="flex-1 py-1.5 bg-white border border-slate-200 text-[10px] font-bold rounded hover:bg-slate-100 uppercase transition-all">View Logs</button>
+                    </div>
+                </div>
+
+                <!-- Outlook -->
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-100 group relative">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-2 border border-slate-100">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg" alt="Outlook">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-on-surface">Exchange / Outlook</h4>
+                            <p class="text-[10px] text-green-600 font-bold tracking-widest uppercase">Active</p>
+                        </div>
+                        <button class="ml-auto text-slate-400 hover:text-error transition-colors">
+                            <span class="material-symbols-outlined text-sm">settings</span>
+                        </button>
+                    </div>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-[11px]">
+                            <span class="text-slate-500">Permissions</span>
+                            <span class="text-on-surface font-bold">Read / Write</span>
+                        </div>
+                        <div class="flex justify-between text-[11px]">
+                            <span class="text-slate-500">Primary Calendar</span>
+                            <span class="text-on-surface font-bold">Commercial Banking</span>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="flex-1 py-1.5 bg-white border border-slate-200 text-[10px] font-bold rounded hover:bg-slate-100 uppercase transition-all">Update Key</button>
+                        <button class="flex-1 py-1.5 bg-white border border-slate-200 text-[10px] font-bold rounded hover:bg-slate-100 uppercase transition-all">Pause Sync</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suggested Integrations -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+             <h3 class="text-sm font-black tracking-widest text-slate-900 uppercase mb-6">Suggested Connectors</h3>
+             <div class="grid grid-cols-4 gap-4">
+                 <div class="p-4 border border-slate-100 rounded-lg flex flex-col items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer group">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg" style="height:24px;" alt="Slack">
+                     <span class="text-[10px] font-bold text-slate-600 group-hover:text-primary">Slack</span>
+                 </div>
+                 <div class="p-4 border border-slate-100 rounded-lg flex flex-col items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer group">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Sap_logo.png" style="height:24px;" alt="SAP">
+                     <span class="text-[10px] font-bold text-slate-600 group-hover:text-primary">SAP ERP</span>
+                 </div>
+                 <div class="p-4 border border-slate-100 rounded-lg flex flex-col items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer group">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/ServiceNow_logo.png" style="height:24px;" alt="ServiceNow">
+                     <span class="text-[10px] font-bold text-slate-600 group-hover:text-primary">ServiceNow</span>
+                 </div>
+                 <div class="p-4 border border-slate-100 rounded-lg flex flex-col items-center gap-3 hover:bg-slate-50 transition-colors cursor-pointer group">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Figma_logo.png" style="height:24px;" alt="Figma">
+                     <span class="text-[10px] font-bold text-slate-600 group-hover:text-primary">Docusign</span>
+                 </div>
+             </div>
+        </section>
+
+    </div>
+</main>
+</div>
+</body></html>
