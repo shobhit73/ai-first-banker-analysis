@@ -200,8 +200,8 @@
                         <p class="text-[11px] text-slate-500 mt-1">Generates a brief 24 hours prior to calendar events using CRM data.</p>
                     </div>
                     <div class="relative inline-block w-[3rem] align-middle select-none">
-                        <input type="checkbox" checked name="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none opacity-0"/>
-                        <label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        <input type="checkbox" checked name="toggle_draft" id="toggle_draft" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none opacity-0 z-10 cursor-pointer"/>
+                        <label for="toggle_draft" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                     </div>
                 </div>
                 
@@ -214,8 +214,8 @@
                         <p class="text-[11px] text-slate-500 mt-1">AI will automatically flag stuck processes and suggest escalations.</p>
                     </div>
                     <div class="relative inline-block w-[3rem] align-middle select-none">
-                        <input type="checkbox" checked name="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none opacity-0"/>
-                        <label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        <input type="checkbox" checked name="toggle_triage" id="toggle_triage" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none opacity-0 z-10 cursor-pointer"/>
+                        <label for="toggle_triage" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                     </div>
                 </div>
 
@@ -225,17 +225,17 @@
                 <div>
                     <h4 class="text-sm font-bold text-on-surface mb-2">Communication Tone</h4>
                     <p class="text-[11px] text-slate-500 mb-4">Select the default voice AI uses when drafting follow-up emails and notes.</p>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="border-2 border-primary bg-primary/5 rounded-xl p-4 cursor-pointer">
-                            <span class="text-xs font-bold text-primary block text-center">Professional</span>
+                    <div class="grid grid-cols-3 gap-4" id="tone-selector">
+                        <div class="tone-card border-2 border-primary bg-primary/5 rounded-xl p-4 cursor-pointer transition-colors" data-selected="true" onclick="selectTone(this)">
+                            <span class="tone-title text-xs font-bold text-primary block text-center">Professional</span>
                             <span class="text-[10px] text-center block mt-1 text-slate-600 line-clamp-2">"Following up regarding..."</span>
                         </div>
-                        <div class="border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white">
-                            <span class="text-xs font-bold text-slate-700 block text-center">Direct & Concise</span>
+                        <div class="tone-card border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white" data-selected="false" onclick="selectTone(this)">
+                            <span class="tone-title text-xs font-bold text-slate-700 block text-center">Direct & Concise</span>
                             <span class="text-[10px] text-center block mt-1 text-slate-500 line-clamp-2">"Action items attached."</span>
                         </div>
-                        <div class="border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white">
-                            <span class="text-xs font-bold text-slate-700 block text-center">Warm / Empathetic</span>
+                        <div class="tone-card border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white" data-selected="false" onclick="selectTone(this)">
+                            <span class="tone-title text-xs font-bold text-slate-700 block text-center">Warm / Empathetic</span>
                             <span class="text-[10px] text-center block mt-1 text-slate-500 line-clamp-2">"Great speaking with you..."</span>
                         </div>
                     </div>
@@ -279,4 +279,20 @@
     </div>
 </main>
 </div>
+<script>
+function selectTone(element) {
+    // Reset all cards
+    const cards = document.querySelectorAll('.tone-card');
+    cards.forEach(card => {
+        card.className = "tone-card border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white";
+        card.setAttribute("data-selected", "false");
+        card.querySelector('.tone-title').className = "tone-title text-xs font-bold text-slate-700 block text-center";
+    });
+
+    // Set selected card
+    element.className = "tone-card border-2 border-primary bg-primary/5 rounded-xl p-4 cursor-pointer transition-colors";
+    element.setAttribute("data-selected", "true");
+    element.querySelector('.tone-title').className = "tone-title text-xs font-bold text-primary block text-center";
+}
+</script>
 </body></html>
