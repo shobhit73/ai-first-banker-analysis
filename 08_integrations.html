@@ -116,140 +116,48 @@
 
     <div class="flex-1 flex flex-col min-w-0 ml-64">
         <!-- TopAppBar -->
-        <header
-            class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
-            <div class="flex items-center gap-6 min-w-0">
-                <span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white shrink-0">Sovereign
-                    Ledger</span>
-                <div class="relative flex items-center">
-                    <span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm"
-                        style="font-variation-settings: 'FILL' 0;">search</span>
-                    <input
-                        class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-48 focus:ring-2 focus:ring-primary/20 transition-all"
-                        placeholder="Search setting..." type="text" />
-                </div>
-            </div>
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="relative" id="notif-container">
-                    <button onclick="toggleDropdown('notif-dropdown', 'account-dropdown')"
-                        class="p-2 cursor-pointer text-slate-500 hover:text-primary hover:bg-slate-50 rounded-full transition-all relative">
-                        <span class="material-symbols-outlined"
-                            style="font-variation-settings: 'FILL' 0;">notifications</span>
-                        <span
-                            class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-                    </button>
-                    <div id="notif-dropdown"
-                        class="hidden absolute right-0 top-12 w-80 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
-                        <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
-                            <h3 class="text-sm font-black text-slate-900 tracking-tight">Notifications</h3>
-                            <button
-                                class="text-[10px] font-bold text-primary uppercase tracking-wide hover:opacity-70">Mark
-                                all read</button>
-                        </div>
-                        <div class="divide-y divide-slate-50 max-h-72 overflow-y-auto">
-                            <a href="06_blockers.html"
-                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="material-symbols-outlined text-red-500 text-sm">block</span></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800">Critical Blocker: Meridian Inc</p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">Approval loop stalled in Risk. Review
-                                        required.</p>
-                                    <p class="text-[10px] text-primary font-bold mt-1">2 min ago</p>
-                                </div>
-                            </a>
-                            <a href="03_ai_meeting_brief.html"
-                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800">AI Brief Ready: Sarah Miller</p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">Meeting at 09:00 AM. Yield data
-                                        prepped.</p>
-                                    <p class="text-[10px] text-primary font-bold mt-1">18 min ago</p>
-                                </div>
-                            </a>
-                            <a href="04_post_meeting_follow_up.html"
-                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="material-symbols-outlined text-purple-500 text-sm">mail</span></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800">Follow-up drafted: Nexus Corp</p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">AI generated 2 follow-up email drafts.
-                                    </p>
-                                    <p class="text-[10px] text-primary font-bold mt-1">1 hr ago</p>
-                                </div>
-                            </a>
-                            <a href="08_integrations.html"
-                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-                                <div
-                                    class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
-                                    <span class="material-symbols-outlined text-green-600 text-sm">sync</span></div>
-                                <div>
-                                    <p class="text-xs font-bold text-slate-800">Salesforce Sync Complete</p>
-                                    <p class="text-[10px] text-slate-400 mt-0.5">342 records updated successfully.</p>
-                                    <p class="text-[10px] text-primary font-bold mt-1">3 hr ago</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="px-5 py-3 border-t border-slate-100 bg-slate-50">
-                            <a href="10_notifications.html"
-                                class="text-[10px] font-black text-primary uppercase tracking-widest hover:opacity-70">View
-                                All Notification Settings &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative" id="account-container">
-                    <button onclick="toggleDropdown('account-dropdown', 'notif-dropdown')"
-                        class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-slate-100 hover:ring-primary/40 transition-all cursor-pointer">
-                        <img alt="User Profile" class="w-full h-full object-cover"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A" />
-                    </button>
-                    <div id="account-dropdown"
-                        class="hidden absolute right-0 top-12 w-64 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
-                        <div class="flex items-center gap-3 px-4 py-4 bg-slate-50 border-b border-slate-100">
-                            <div class="h-10 w-10 rounded-full bg-slate-200 overflow-hidden ring-2 ring-white shrink-0">
-                                <img alt="Alexander Ross" class="w-full h-full object-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A" />
-                            </div>
-                            <div>
-                                <p class="text-sm font-black text-slate-900">Alexander Ross</p>
-                                <p class="text-[10px] text-slate-500 font-medium">Sr. Relationship Manager</p>
-                            </div>
-                        </div>
-                        <div class="py-2">
-                            <a href="09_profile.html"
-                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
-                                <span class="material-symbols-outlined text-slate-400 text-base"
-                                    style="font-variation-settings: 'FILL' 0;">manage_accounts</span>Profile &amp;
-                                Security
-                            </a>
-                            <a href="07_settings.html"
-                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
-                                <span class="material-symbols-outlined text-slate-400 text-base"
-                                    style="font-variation-settings: 'FILL' 0;">settings</span>AI Copilot Settings
-                            </a>
-                            <a href="10_notifications.html"
-                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
-                                <span class="material-symbols-outlined text-slate-400 text-base"
-                                    style="font-variation-settings: 'FILL' 0;">notifications</span>Notification Prefs
-                            </a>
-                        </div>
-                        <div class="py-2 border-t border-slate-100">
-                            <a href="javascript:void(0)"
-                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-red-50 transition-colors cursor-pointer text-sm text-red-500 font-semibold">
-                                <span class="material-symbols-outlined text-red-400 text-base"
-                                    style="font-variation-settings: 'FILL' 0;">logout</span>Sign Out
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+        <header style="position:fixed;top:0;right:0;left:256px;height:64px;z-index:40;background:white;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid #f1f5f9;">
+<div style="display:flex;align-items:center;gap:20px;">
+<span style="font-size:18px;font-weight:900;letter-spacing:-0.02em;color:#0f172a;white-space:nowrap;">Sovereign Ledger</span>
+<div style="position:relative;display:flex;align-items:center;">
+<span class="material-symbols-outlined" style="position:absolute;left:10px;color:#94a3b8;font-size:16px;font-variation-settings:'FILL' 0;">search</span>
+<input style="background:#f1f5f9;border:none;border-radius:8px;padding:6px 12px 6px 34px;font-size:13px;width:160px;outline:none;" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+<div style="position:relative;" id="notif-container">
+<button onclick="toggleDropdown('notif-dropdown','account-dropdown')" style="position:relative;border:none;background:none;cursor:pointer;padding:8px;border-radius:50%;color:#64748b;display:flex;align-items:center;transition:background 0.2s;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='none'">
+<span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 0;">notifications</span>
+<span style="position:absolute;top:8px;right:8px;width:8px;height:8px;background:#ef4444;border-radius:50%;border:2px solid white;"></span>
+</button>
+<div id="notif-dropdown" style="display:none;position:absolute;right:0;top:50px;width:320px;background:white;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.12);z-index:1000;overflow:hidden;">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid #f1f5f9;"><span style="font-size:14px;font-weight:900;color:#0f172a;">Notifications</span><button style="font-size:10px;font-weight:700;color:#0c56d0;background:none;border:none;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;">Mark all read</button></div>
+<div style="max-height:280px;overflow-y:auto;">
+<a href="06_blockers.html" style="display:flex;gap:12px;padding:12px 20px;text-decoration:none;border-bottom:1px solid #f8fafc;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><div style="width:30px;height:30px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-symbols-outlined" style="color:#ef4444;font-size:14px;">block</span></div><div><p style="font-size:12px;font-weight:700;color:#0f172a;margin:0;">Critical Blocker: Meridian Inc</p><p style="font-size:10px;color:#94a3b8;margin:2px 0 0;">Approval loop stalled in Risk.</p><p style="font-size:10px;color:#0c56d0;font-weight:700;margin:4px 0 0;">2 min ago</p></div></a>
+<a href="03_ai_meeting_brief.html" style="display:flex;gap:12px;padding:12px 20px;text-decoration:none;border-bottom:1px solid #f8fafc;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><div style="width:30px;height:30px;background:#eff6ff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-symbols-outlined" style="color:#0c56d0;font-size:14px;">auto_awesome</span></div><div><p style="font-size:12px;font-weight:700;color:#0f172a;margin:0;">AI Brief Ready: Sarah Miller</p><p style="font-size:10px;color:#94a3b8;margin:2px 0 0;">Meeting at 09:00 AM prepped.</p><p style="font-size:10px;color:#0c56d0;font-weight:700;margin:4px 0 0;">18 min ago</p></div></a>
+<a href="04_post_meeting_follow_up.html" style="display:flex;gap:12px;padding:12px 20px;text-decoration:none;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><div style="width:30px;height:30px;background:#faf5ff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-symbols-outlined" style="color:#9333ea;font-size:14px;">mail</span></div><div><p style="font-size:12px;font-weight:700;color:#0f172a;margin:0;">Follow-up Draft: Nexus Corp</p><p style="font-size:10px;color:#94a3b8;margin:2px 0 0;">AI generated 2 email drafts.</p><p style="font-size:10px;color:#0c56d0;font-weight:700;margin:4px 0 0;">1 hr ago</p></div></a>
+</div>
+<div style="padding:10px 20px;background:#f8fafc;border-top:1px solid #f1f5f9;"><a href="10_notifications.html" style="font-size:10px;font-weight:900;color:#0c56d0;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;">View All Notification Settings &rarr;</a></div>
+</div>
+</div>
+<div style="position:relative;" id="account-container">
+<button onclick="toggleDropdown('account-dropdown','notif-dropdown')" style="width:34px;height:34px;border-radius:50%;overflow:hidden;border:2px solid #e2e8f0;cursor:pointer;padding:0;background:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#0c56d0'" onmouseout="this.style.borderColor='#e2e8f0'">
+<img alt="User Profile" style="width:100%;height:100%;object-fit:cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</button>
+<div id="account-dropdown" style="display:none;position:absolute;right:0;top:50px;width:240px;background:white;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.12);z-index:1000;overflow:hidden;">
+<div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8fafc;border-bottom:1px solid #f1f5f9;"><img alt="Alexander" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid white;flex-shrink:0;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/><div><p style="font-size:13px;font-weight:900;color:#0f172a;margin:0;">Alexander Ross</p><p style="font-size:10px;color:#94a3b8;margin:2px 0 0;">Sr. Relationship Manager</p></div></div>
+<div style="padding:6px 0;">
+<a href="09_profile.html" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#334155;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#94a3b8;font-variation-settings:'FILL' 0;">manage_accounts</span>Profile &amp; Security</a>
+<a href="07_settings.html" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#334155;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#94a3b8;font-variation-settings:'FILL' 0;">settings</span>AI Copilot Settings</a>
+<a href="10_notifications.html" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#334155;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#94a3b8;font-variation-settings:'FILL' 0;">notifications</span>Notification Prefs</a>
+</div>
+<div style="padding:6px 0;border-top:1px solid #f1f5f9;">
+<a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#ef4444;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#ef4444;font-variation-settings:'FILL' 0;">logout</span>Sign Out</a>
+</div>
+</div>
+</div>
+</div>
+</header>
         <!-- Main Content -->
         <main class="pt-24 p-8 max-w-[1200px] mx-auto w-full flex gap-10">
 
@@ -407,18 +315,10 @@
     </div>
 
     
+
 <script>
-function toggleDropdown(showId, hideId) {
-  var s = document.getElementById(showId), h = document.getElementById(hideId);
-  if(h) h.style.display='none';
-  if(s) s.style.display = (s.style.display==='none'||s.style.display==='') ? 'block' : 'none';
-}
-document.addEventListener('click', function(e) {
-  ['notif','account'].forEach(function(k) {
-    var d = document.getElementById(k+'-dropdown'), c = document.getElementById(k+'-container');
-    if(d && c && !c.contains(e.target)) d.style.display='none';
-  });
-});
+function toggleDropdown(s,h){var sd=document.getElementById(s),hd=document.getElementById(h);if(hd)hd.style.display='none';if(sd)sd.style.display=(sd.style.display==='block')?'none':'block';}
+document.addEventListener('click',function(e){['notif','account'].forEach(function(k){var d=document.getElementById(k+'-dropdown'),c=document.getElementById(k+'-container');if(d&&c&&!c.contains(e.target))d.style.display='none';});});
 </script>
 </body>
 
