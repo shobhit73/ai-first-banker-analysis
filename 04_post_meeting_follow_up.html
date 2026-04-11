@@ -151,25 +151,69 @@
 <main class="flex-1 ml-64 flex flex-col min-w-0 bg-surface">
 <!-- TopAppBar Shared Component -->
 <header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
-<div class="flex items-center gap-8">
-<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">Sovereign Ledger</span>
-<div class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm" data-icon="search">search</span>
-<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-full max-w-[140px] lg:max-w-xs focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search workbench..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-2 lg:gap-6 shrink-0">
-<a href="10_notifications.html" class="flex items-center gap-2 p-2 cursor-pointer text-slate-500 hover:text-primary transition-all relative group">
+<div class="flex items-center gap-3 shrink-0">
+<div class="relative" id="notif-container">
+<button onclick="toggleDropdown('notif-dropdown', 'account-dropdown')" class="p-2 cursor-pointer text-slate-500 hover:text-primary hover:bg-slate-50 rounded-full transition-all relative">
     <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
-    <span class="text-[10px] font-bold uppercase tracking-widest hidden xl:block group-hover:text-primary">Notifications</span>
-    <span class="absolute top-2 left-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
-</a>
-<a href="09_profile.html" class="flex items-center gap-3 p-1 pr-3 cursor-pointer hover:bg-slate-50 rounded-full transition-all group">
-    <div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-slate-100 group-hover:ring-primary/40 transition-all">
-        <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div id="notif-dropdown" class="hidden absolute right-0 top-12 w-80 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+        <h3 class="text-sm font-black text-slate-900 tracking-tight">Notifications</h3>
+        <button class="text-[10px] font-bold text-primary uppercase tracking-wide hover:opacity-70">Mark all read</button>
     </div>
-    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-primary hidden xl:block">Account</span>
-</a>
+    <div class="divide-y divide-slate-50 max-h-72 overflow-y-auto">
+        <a href="06_blockers.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+            <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-red-500 text-sm">block</span></div>
+            <div><p class="text-xs font-bold text-slate-800">Critical Blocker: Meridian Inc</p><p class="text-[10px] text-slate-400 mt-0.5">Approval loop stalled in Risk. Review required.</p><p class="text-[10px] text-primary font-bold mt-1">2 min ago</p></div>
+        </a>
+        <a href="03_ai_meeting_brief.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-primary text-sm">auto_awesome</span></div>
+            <div><p class="text-xs font-bold text-slate-800">AI Brief Ready: Sarah Miller</p><p class="text-[10px] text-slate-400 mt-0.5">Meeting at 09:00 AM. Yield data prepped.</p><p class="text-[10px] text-primary font-bold mt-1">18 min ago</p></div>
+        </a>
+        <a href="04_post_meeting_follow_up.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+            <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-purple-500 text-sm">mail</span></div>
+            <div><p class="text-xs font-bold text-slate-800">Follow-up drafted: Nexus Corp</p><p class="text-[10px] text-slate-400 mt-0.5">AI generated 2 follow-up email drafts.</p><p class="text-[10px] text-primary font-bold mt-1">1 hr ago</p></div>
+        </a>
+        <a href="08_integrations.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+            <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-green-600 text-sm">sync</span></div>
+            <div><p class="text-xs font-bold text-slate-800">Salesforce Sync Complete</p><p class="text-[10px] text-slate-400 mt-0.5">342 records updated successfully.</p><p class="text-[10px] text-primary font-bold mt-1">3 hr ago</p></div>
+        </a>
+    </div>
+    <div class="px-5 py-3 border-t border-slate-100 bg-slate-50">
+        <a href="10_notifications.html" class="text-[10px] font-black text-primary uppercase tracking-widest hover:opacity-70">View All Notification Settings ?</a>
+    </div>
+</div>
+</div>
+<div class="relative" id="account-container">
+<button onclick="toggleDropdown('account-dropdown', 'notif-dropdown')" class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-slate-100 hover:ring-primary/40 transition-all cursor-pointer">
+    <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</button>
+<div id="account-dropdown" class="hidden absolute right-0 top-12 w-64 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
+    <div class="flex items-center gap-3 px-4 py-4 bg-slate-50 border-b border-slate-100">
+        <div class="h-10 w-10 rounded-full bg-slate-200 overflow-hidden ring-2 ring-white shrink-0">
+            <img alt="Alexander Ross" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+        </div>
+        <div><p class="text-sm font-black text-slate-900">Alexander Ross</p><p class="text-[10px] text-slate-500 font-medium">Sr. Relationship Manager</p></div>
+    </div>
+    <div class="py-2">
+        <a href="09_profile.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
+            <span class="material-symbols-outlined text-slate-400 text-base" style="font-variation-settings: 'FILL' 0;">manage_accounts</span>Profile &amp; Security
+        </a>
+        <a href="07_settings.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
+            <span class="material-symbols-outlined text-slate-400 text-base" style="font-variation-settings: 'FILL' 0;">settings</span>AI Copilot Settings
+        </a>
+        <a href="10_notifications.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
+            <span class="material-symbols-outlined text-slate-400 text-base" style="font-variation-settings: 'FILL' 0;">notifications</span>Notification Prefs
+        </a>
+    </div>
+    <div class="py-2 border-t border-slate-100">
+        <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-2.5 hover:bg-red-50 transition-colors cursor-pointer text-sm text-red-500 font-semibold">
+            <span class="material-symbols-outlined text-red-400 text-base" style="font-variation-settings: 'FILL' 0;">logout</span>Sign Out
+        </a>
+    </div>
+</div>
+</div>
 </div>
 </header>
 <!-- Workspace Content -->
@@ -415,4 +459,20 @@
 </div>
 </main>
 </div>
+<script>
+function toggleDropdown(showId, hideId) {
+    var show = document.getElementById(showId);
+    var hide = document.getElementById(hideId);
+    if (hide) hide.classList.add('hidden');
+    if (show) show.classList.toggle('hidden');
+}
+document.addEventListener('click', function(e) {
+    var notif = document.getElementById('notif-dropdown');
+    var account = document.getElementById('account-dropdown');
+    var notifBtn = document.getElementById('notif-container');
+    var accountBtn = document.getElementById('account-container');
+    if (notif && notifBtn && !notifBtn.contains(e.target)) notif.classList.add('hidden');
+    if (account && accountBtn && !accountBtn.contains(e.target)) account.classList.add('hidden');
+});
+</script>
 </body></html>
