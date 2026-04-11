@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Relationship Workbench: TechCorp Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-left: 2px solid #624ac3;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "primary-dim": "#004aba",
+                      "primary-container": "#dae2ff",
+                      "surface-tint": "#0c56d0",
+                      "on-secondary-fixed": "#323f5d",
+                      "tertiary": "#624ac3",
+                      "on-secondary-container": "#445171",
+                      "on-surface": "#2b3438",
+                      "inverse-surface": "#0c0f10",
+                      "secondary-container": "#d9e2ff",
+                      "error-dim": "#4e0309",
+                      "on-error": "#fff7f6",
+                      "primary": "#0c56d0",
+                      "surface-variant": "#dbe4ea",
+                      "on-secondary-fixed-variant": "#4e5b7b",
+                      "secondary-fixed": "#d9e2ff",
+                      "surface-dim": "#d1dce2",
+                      "on-tertiary": "#fcf7ff",
+                      "on-primary-fixed-variant": "#0253cd",
+                      "surface-container-high": "#e2e9ee",
+                      "primary-fixed": "#dae2ff",
+                      "on-error-container": "#752121",
+                      "outline": "#737c81",
+                      "surface": "#f8f9fb",
+                      "on-primary-fixed": "#003993",
+                      "surface-bright": "#f8f9fb",
+                      "surface-container-low": "#f1f4f7",
+                      "tertiary-dim": "#563cb6",
+                      "error": "#9f403d",
+                      "background": "#f8f9fb",
+                      "secondary": "#525f7f",
+                      "tertiary-container": "#9a83ff",
+                      "tertiary-fixed": "#9a83ff",
+                      "primary-fixed-dim": "#c6d3ff",
+                      "on-primary": "#f8f7ff",
+                      "on-tertiary-container": "#180055",
+                      "on-tertiary-fixed": "#000000",
+                      "surface-container-highest": "#dbe4ea",
+                      "inverse-primary": "#5c8bff",
+                      "on-surface-variant": "#586065",
+                      "surface-container": "#eaeef2",
+                      "secondary-dim": "#465372",
+                      "on-primary-container": "#004ab9",
+                      "outline-variant": "#aab3b9",
+                      "error-container": "#fe8983",
+                      "on-background": "#2b3438",
+                      "on-tertiary-fixed-variant": "#230072",
+                      "tertiary-fixed-dim": "#8d76f1",
+                      "secondary-fixed-dim": "#c7d4f9",
+                      "inverse-on-surface": "#9b9d9f",
+                      "on-secondary": "#f9f8ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface flex overflow-hidden h-screen">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 border-r border-outline-variant/20 bg-surface-container-low flex flex-col py-6 px-4">
+<div class="mb-10 px-4">
+<h1 class="text-xl font-black text-slate-900 tracking-tighter">RM Copilot</h1>
+<p class="text-[10px] font-bold uppercase tracking-widest text-secondary mt-1">Enterprise Banking</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-xs font-medium uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-blue-700 bg-white shadow-sm rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-xs font-medium uppercase tracking-wider">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="text-xs font-medium uppercase tracking-wider">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="text-xs font-medium uppercase tracking-wider">Meetings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-xs font-medium uppercase tracking-wider">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="rebase_edit">rebase_edit</span>
+<span class="text-xs font-medium uppercase tracking-wider">Follow-ups</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+<span class="text-xs font-medium uppercase tracking-wider">Blockers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-xs font-medium uppercase tracking-wider">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 rounded-md text-[10px] font-bold uppercase tracking-widest mb-6 shadow-lg shadow-primary/20 hover:bg-primary-dim transition-all">
+                Add Client
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 text-xs font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 text-xs font-medium uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 overflow-y-auto bg-surface h-screen">
+<!-- Top Bar -->
+<header class="flex justify-between items-center px-8 h-16 w-full bg-white border-b border-outline-variant/10 sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<h2 class="text-lg font-bold text-slate-900 tracking-tight">Relationship Workbench: TechCorp Solutions</h2>
+<span class="px-2 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold uppercase tracking-widest rounded">Tier 1 Global</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-sm" data-icon="search">search</span>
+<input class="pl-9 pr-4 py-1.5 bg-surface-container-low border-none rounded-md text-sm w-64 focus:ring-1 focus:ring-primary" placeholder="Search across relationship..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-outline cursor-pointer" data-icon="help_outline">help_outline</span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-md text-xs font-semibold">New Interaction</button>
+<img class="h-8 w-8 rounded-full border border-outline-variant/20 object-cover" data-alt="professional portrait of a banking executive in a dark blue suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAYjNN22QsRjhay7X50VX4K_SineMm5zRmWRuYBRws6qw_NN9binf9yM-fPQLdhwO2bsSlqFAmB0pSVU0a--q82_Wv6y6DwkcYwrCUHGF2jsEjinYdL_eWmtStZss1P0qHYtqZ-tKoXMr2B9Ic1qW94LKOmGsh6QM-oTF3TYv0itsWUS-Aq8wA8Ufoe6seclLiG9_upPDkcgtB6PHiS_rW2CCY5CBglBGAVXcvw2B08O_hT-EMC2QcQ2LgXatO3NGXhAq_6zmXrA"/>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-[1600px] mx-auto space-y-8">
+<!-- Operational Metrics Header -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded shadow-sm border-l-4 border-error">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest">Open Items</p>
+<p class="text-2xl font-black text-on-surface mt-1">3</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded shadow-sm border-l-4 border-primary">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest">Missing Docs</p>
+<p class="text-2xl font-black text-on-surface mt-1">2</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded shadow-sm border-l-4 border-error-container">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest">Internal Blocker</p>
+<p class="text-2xl font-black text-on-surface mt-1">1</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded shadow-sm">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest">Renewal Due</p>
+<p class="text-2xl font-black text-primary mt-1">9 days</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded shadow-sm">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest">Next Meeting</p>
+<p class="text-2xl font-black text-on-surface mt-1">Tomorrow</p>
+</div>
+<div class="bg-tertiary-container/10 p-4 rounded shadow-sm border border-tertiary/20">
+<p class="text-[10px] font-bold text-tertiary uppercase tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="auto_awesome">auto_awesome</span>
+                        AI Brief
+                    </p>
+<p class="text-2xl font-black text-tertiary mt-1">Ready</p>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: AI & Readiness -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- AI Summary -->
+<div class="glass-ai p-6 rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-black text-tertiary uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="psychology">psychology</span>
+                                Executive Brief
+                            </h3>
+<span class="text-[10px] text-outline italic">Updated 2h ago</span>
+</div>
+<div class="space-y-4">
+<div>
+<label class="text-[10px] font-bold text-outline uppercase tracking-widest">Current Situation</label>
+<p class="text-sm text-on-surface mt-1 leading-relaxed font-medium">TechCorp is expanding its APAC operations. Capital requirements have increased by 15% this quarter.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="text-[10px] font-bold text-outline uppercase tracking-widest">Risk Level</label>
+<p class="text-sm text-error font-bold flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span> Moderate
+                                    </p>
+</div>
+<div>
+<label class="text-[10px] font-bold text-outline uppercase tracking-widest">Opportunity</label>
+<p class="text-sm text-primary font-bold mt-1">FX Hedging</p>
+</div>
+</div>
+<div class="bg-white/50 p-3 rounded border border-tertiary/10">
+<label class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Next Recommended Step</label>
+<p class="text-sm font-semibold text-on-surface mt-1">Review documentation gap before meeting.</p>
+</div>
+<p class="text-[10px] text-outline border-t border-outline-variant/20 pt-3">Based on 14 documents reviewed, recent 10-K filing, and CRM activity.</p>
+</div>
+</div>
+<!-- Relationship Readiness -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/10">
+<h3 class="text-sm font-black text-on-surface uppercase tracking-widest mb-6">Relationship Readiness</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant font-medium">Status</span>
+<span class="text-xs font-bold text-primary">Stable</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant font-medium">Open Issues</span>
+<span class="text-xs font-bold">2</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant font-medium">Docs Pending</span>
+<span class="text-xs font-bold text-error">2</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant font-medium">Internal Blockers</span>
+<span class="text-xs font-bold text-error">1</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-xs text-on-surface-variant font-medium">Next Review</span>
+<span class="text-xs font-bold">Oct 24</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="text-xs text-on-surface-variant font-medium">AI Brief</span>
+<span class="text-xs font-bold text-tertiary">Ready</span>
+</div>
+</div>
+</div>
+<!-- AI Prepared Work -->
+<div class="bg-surface-container-low p-5 rounded-lg border border-tertiary/10">
+<h4 class="text-[10px] font-bold text-tertiary uppercase tracking-widest mb-4">AI-Prepared Workflows</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between bg-white p-3 rounded shadow-sm cursor-pointer hover:border-tertiary/40 border border-transparent transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="description">description</span>
+<span class="text-xs font-semibold">Meeting Brief Ready</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between bg-white p-3 rounded shadow-sm cursor-pointer hover:border-tertiary/40 border border-transparent transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="summarize">summarize</span>
+<span class="text-xs font-semibold">CRM Summary Ready</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between bg-white p-3 rounded shadow-sm cursor-pointer hover:border-tertiary/40 border border-transparent transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="mail">mail</span>
+<span class="text-xs font-semibold">Follow-up Draft Ready</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Tables & Operations -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Quick Actions Row -->
+<div class="flex flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded text-xs font-bold uppercase tracking-wider shadow-sm transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="edit_note">edit_note</span>
+                            Prepare Meeting Brief
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white text-primary border border-outline-variant/30 rounded text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="outgoing_mail">outgoing_mail</span>
+                            Draft Follow-up
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white text-on-surface-variant border border-outline-variant/30 rounded text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="history_edu">history_edu</span>
+                            Log Interaction
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-white text-on-surface-variant border border-outline-variant/30 rounded text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="folder_open">folder_open</span>
+                            View Documents
+                        </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-error-container text-on-error-container rounded text-xs font-bold uppercase tracking-wider shadow-sm transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="handyman">handyman</span>
+                            Resolve Blocker
+                        </button>
+</div>
+<!-- Missing Documents Table -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm border border-outline-variant/10 overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="text-sm font-black text-on-surface uppercase tracking-widest">Missing Documents</h3>
+<span class="text-[10px] font-bold text-error uppercase px-2 py-1 bg-error-container/10 rounded">2 Critical Items</span>
+</div>
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-3 text-[10px] font-bold text-outline-variant uppercase tracking-widest">Document</th>
+<th class="px-6 py-3 text-[10px] font-bold text-outline-variant uppercase tracking-widest">Owner</th>
+<th class="px-6 py-3 text-[10px] font-bold text-outline-variant uppercase tracking-widest">Due Date</th>
+<th class="px-6 py-3 text-[10px] font-bold text-outline-variant uppercase tracking-widest">Urgency</th>
+<th class="px-6 py-3 text-[10px] font-bold text-outline-variant uppercase tracking-widest">Status</th>
+<th class="px-6 py-3 text-[10px] font-bold text-outline-variant uppercase tracking-widest">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 text-xs font-bold text-on-surface">UBO Declaration 2024</td>
+<td class="px-6 py-4 text-xs">CFO Office</td>
+<td class="px-6 py-4 text-xs">24 Sep</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-error-container/20 text-on-error-container text-[10px] font-bold rounded uppercase">High</span>
+</td>
+<td class="px-6 py-4 text-xs text-outline italic">Outstanding</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:text-primary transition-colors" title="Draft Reminder">
+<span class="material-symbols-outlined text-lg" data-icon="forward_to_inbox">forward_to_inbox</span>
+</button>
+<button class="p-1 hover:text-error transition-colors" title="Escalate">
+<span class="material-symbols-outlined text-lg" data-icon="priority_high">priority_high</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4 text-xs font-bold text-on-surface">Updated AML Registry</td>
+<td class="px-6 py-4 text-xs">Legal Dept</td>
+<td class="px-6 py-4 text-xs">02 Oct</td>
+<td class="px-6 py-4">
+<span class="px-2 py-0.5 bg-secondary-container/20 text-on-secondary-container text-[10px] font-bold rounded uppercase">Medium</span>
+</td>
+<td class="px-6 py-4 text-xs text-outline italic">Pending</td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:text-primary transition-colors" title="Draft Reminder">
+<span class="material-symbols-outlined text-lg" data-icon="forward_to_inbox">forward_to_inbox</span>
+</button>
+<button class="p-1 hover:text-primary-dim transition-colors" title="Mark Received">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Internal Dependencies -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/10">
+<h3 class="text-sm font-black text-on-surface uppercase tracking-widest mb-6">Internal Dependencies</h3>
+<div class="space-y-6">
+<div class="relative pl-4 border-l-2 border-primary/20">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold text-on-surface">Credit Underwriting</p>
+<p class="text-[11px] text-outline mt-1">In review • 3 days remaining</p>
+</div>
+<button class="text-[10px] font-bold text-primary uppercase hover:underline">Nudge</button>
+</div>
+</div>
+<div class="relative pl-4 border-l-2 border-error/40">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-bold text-on-surface">Compliance Review</p>
+<p class="text-[11px] text-error font-medium mt-1">Pending clarification • 2 days delay</p>
+</div>
+<button class="text-[10px] font-bold text-primary uppercase hover:underline">Resolve</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommended Actions (RM Specific) -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/10">
+<h3 class="text-sm font-black text-on-surface uppercase tracking-widest mb-6">Recommended Tasks</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded border-l-2 border-primary">
+<span class="material-symbols-outlined text-primary" data-icon="article">article</span>
+<div>
+<p class="text-xs font-bold text-on-surface">Prepare renewal brief</p>
+<p class="text-[10px] text-outline">Due in 2 days</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded border-l-2 border-error">
+<span class="material-symbols-outlined text-error" data-icon="campaign">campaign</span>
+<div>
+<p class="text-xs font-bold text-on-surface">Send AML reminder</p>
+<p class="text-[10px] text-outline">Overdue by 1 day</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded border-l-2 border-on-surface">
+<span class="material-symbols-outlined text-on-surface" data-icon="escalator_warning">escalator_warning</span>
+<div>
+<p class="text-xs font-bold text-on-surface">Escalate compliance blocker</p>
+<p class="text-[10px] text-outline">High priority</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Interactions -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm border border-outline-variant/10">
+<h3 class="text-sm font-black text-on-surface uppercase tracking-widest mb-6">Recent Interactions</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-low rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="call">call</span>
+</div>
+<div class="flex-1 border-b border-outline-variant/10 pb-6">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-xs font-bold text-on-surface">Quarterly Operations Review</h4>
+<p class="text-[11px] text-outline mt-1">With Sarah Chen (CFO) • Sep 21, 2024</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-tertiary-container/20 text-tertiary font-bold rounded uppercase">CRM summary prepared by AI</span>
+</div>
+</div>
+<p class="text-xs mt-3 text-on-surface-variant leading-relaxed">Discussed expansion plans into Singapore. Customer requested better rates on USD/SGD spot trades.</p>
+<div class="mt-4 flex gap-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="task_alt">task_alt</span>
+<span class="text-[11px] font-medium text-on-surface">Follow-up: Pending</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="description">description</span>
+<span class="text-[11px] font-medium text-outline">Meeting notes saved</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-low rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="mail">mail</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-xs font-bold text-on-surface">Email: Facility Renewal Inquiry</h4>
+<p class="text-[11px] text-outline mt-1">From James Bond (Treasury) • Sep 19, 2024</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] px-2 py-0.5 bg-primary-container/20 text-primary font-bold rounded uppercase">Action Required</span>
+</div>
+</div>
+<p class="text-xs mt-3 text-on-surface-variant leading-relaxed">Inquired about the timeline for the $50M revolving credit facility renewal due next month.</p>
+<div class="mt-4 flex gap-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error" data-icon="pending">pending</span>
+<span class="text-[11px] font-medium text-error">Response Overdue</span>
+</div>
+<div class="flex items-center gap-1 cursor-pointer hover:text-primary">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[11px] font-medium">Draft reply with AI</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

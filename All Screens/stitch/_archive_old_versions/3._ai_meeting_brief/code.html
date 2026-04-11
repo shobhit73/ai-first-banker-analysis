@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#9f403d",
+                        "on-primary-fixed-variant": "#0253cd",
+                        "outline": "#737c81",
+                        "surface-container-high": "#e2e9ee",
+                        "surface-container-low": "#f1f4f7",
+                        "on-error": "#fff7f6",
+                        "primary-fixed-dim": "#c6d3ff",
+                        "on-surface-variant": "#586065",
+                        "secondary-fixed": "#d9e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-dim": "#004aba",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#f8f7ff",
+                        "tertiary-fixed": "#9a83ff",
+                        "on-primary-fixed": "#003993",
+                        "error-dim": "#4e0309",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed-dim": "#8d76f1",
+                        "on-surface": "#2b3438",
+                        "on-secondary-fixed": "#323f5d",
+                        "surface-container": "#eaeef2",
+                        "outline-variant": "#aab3b9",
+                        "on-secondary-fixed-variant": "#4e5b7b",
+                        "inverse-on-surface": "#9b9d9f",
+                        "primary": "#0c56d0",
+                        "on-error-container": "#752121",
+                        "surface-container-highest": "#dbe4ea",
+                        "inverse-surface": "#0c0f10",
+                        "surface": "#f8f9fb",
+                        "tertiary-dim": "#563cb6",
+                        "on-tertiary-fixed": "#000000",
+                        "on-secondary": "#f9f8ff",
+                        "primary-container": "#dae2ff",
+                        "on-tertiary": "#fcf7ff",
+                        "surface-variant": "#dbe4ea",
+                        "error-container": "#fe8983",
+                        "surface-tint": "#0c56d0",
+                        "secondary-fixed-dim": "#c7d4f9",
+                        "on-primary-container": "#004ab9",
+                        "tertiary": "#624ac3",
+                        "on-background": "#2b3438",
+                        "inverse-primary": "#5c8bff",
+                        "surface-dim": "#d1dce2",
+                        "secondary-container": "#d9e2ff",
+                        "secondary-dim": "#465372",
+                        "secondary": "#525f7f",
+                        "tertiary-container": "#9a83ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-tertiary-container": "#180055",
+                        "on-secondary-container": "#445171",
+                        "on-tertiary-fixed-variant": "#230072"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-ai {
+            background: rgba(154, 131, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-left: 2px solid #624ac3;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 border-r border-slate-100 dark:border-slate-800 bg-slate-50 flex flex-col py-6 px-4 shrink-0">
+<div class="mb-8 px-4">
+<h1 class="text-lg font-black text-slate-900">RM Portal</h1>
+<p class="text-[10px] font-bold tracking-widest text-slate-500 uppercase">Enterprise Banking</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-sm font-medium">Customers</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-sm font-medium">Tasks</span>
+</a>
+<a class="flex items-center gap-3 text-blue-700 font-semibold bg-white rounded-lg px-4 py-3 scale 0.98x transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="text-sm">Meetings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-sm font-medium">Documents</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600 hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-slate-200">
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="text-sm font-medium">Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 px-4 py-3 hover:text-blue-600" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="w-full h-16 border-b border-slate-100 bg-white flex justify-between items-center px-8 sticky top-0 z-50">
+<div class="flex items-center gap-6">
+<span class="text-xl font-bold tracking-tight text-slate-900">Sovereign Ledger</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 text-sm font-medium hover:text-blue-700" href="#">Dashboard</a>
+<a class="text-blue-700 font-bold border-b-2 border-blue-700 text-sm py-5" href="#">Market Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">history_edu</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container overflow-hidden">
+<img class="object-cover h-full w-full" data-alt="Professional headshot of a business executive in a tailored navy suit with soft office lighting background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnsdSKlfuSlonjZ26vf_Ty9_HTvP79-VAqFpMJjfTIOBWMPxUqlVS7iQxKxgOvnmdolyMnXC7BwqlxKVdLVmwjW2G6y9wHIjYAGlLEGiMT9Y_TUPywBxibQIK6toHSRdwtVxd9Su6zJpIKCF5RCnXcOq2z1MQcfVLNkbM85PxvHNM7ITbEqEGoHrc5IU5p2VKl_0PQZ_rzRVJDpI3l7uCUvwY9h2Ijk5K1yH3Xqt2hpFxdS_b1NXA2cfN_ZqaySSPP9pvFtCfDtQ"/>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 overflow-y-auto p-8 bg-surface">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<nav class="flex items-center gap-2 text-label-sm uppercase tracking-wider text-outline mb-2 text-[10px] font-bold">
+<span>Meetings</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary">Preparation Brief</span>
+</nav>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Q4 Strategic Review: Global Tech Corp</h2>
+<div class="flex gap-6 mt-3 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+<span class="text-sm">October 24, 2023</span>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-6">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span class="text-sm">14:00 - 15:30 (90 min)</span>
+</div>
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-6">
+<span class="material-symbols-outlined text-base">group</span>
+<span class="text-sm">Sarah Jenkins (CFO), Marcus Thorne (VP)</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-5 py-2.5 rounded-md border border-outline-variant/30 text-primary font-semibold text-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                        Copy Brief
+                    </button>
+<button class="flex items-center gap-2 px-6 py-2.5 rounded-md bg-gradient-to-r from-primary to-primary-dim text-white font-bold text-sm shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+                        Start Meeting
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-12 gap-6">
+<!-- AI Summary Main (Left Column) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Objective & Prep Summary -->
+<div class="glass-ai p-6 rounded-xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="text-tertiary font-bold tracking-tight text-sm uppercase">AI Meeting Objective</h3>
+</div>
+<p class="text-on-surface text-lg leading-relaxed font-medium mb-6">
+                            Secure commitment for the expansion of the treasury management suite and address lingering concerns regarding cross-border liquidity reporting latency.
+                        </p>
+<div class="pt-6 border-t border-tertiary-container/30">
+<h4 class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-3">Preparation Summary</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                Client's recent merger with EuroConnect has increased their FX exposure by 40%. Their current manual reconciliation process is a critical bottleneck. Internal data shows they've engaged with our "Sovereign Treasury" whitepaper three times in the last 14 days. This indicates high readiness for a structured upgrade conversation.
+                            </p>
+</div>
+</div>
+<!-- Key Talking Points & Risks Asymmetric Grid -->
+<div class="grid grid-cols-2 gap-6">
+<!-- Key Talking Points -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-blue-600">forum</span>
+<h3 class="text-on-surface font-bold text-sm uppercase tracking-tight">Key Talking Points</h3>
+</div>
+<ul class="space-y-4">
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+<span class="text-sm leading-snug text-on-surface">Review of Q3 liquidity performance and yield optimization.</span>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+<span class="text-sm leading-snug text-on-surface">Impact analysis of EuroConnect merger on cash visibility.</span>
+</li>
+<li class="flex gap-3">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></span>
+<span class="text-sm leading-snug text-on-surface">Demonstration of AI-driven hedging recommendations.</span>
+</li>
+</ul>
+</div>
+<!-- Potential Risks -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-error">warning</span>
+<h3 class="text-on-surface font-bold text-sm uppercase tracking-tight">Risks &amp; Objections</h3>
+</div>
+<ul class="space-y-4">
+<li class="p-3 bg-error-container/10 border-l-2 border-error-container rounded-r-lg">
+<p class="text-[10px] font-bold text-error uppercase mb-1">Pricing Concern</p>
+<p class="text-xs text-on-surface">Client may perceive the 15% increase in base fee as high given current austerity measures.</p>
+</li>
+<li class="p-3 bg-error-container/10 border-l-2 border-error-container rounded-r-lg">
+<p class="text-[10px] font-bold text-error uppercase mb-1">Technical Implementation</p>
+<p class="text-xs text-on-surface">IT department bandwidth is low; integration timeline must be clearly streamlined.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Content (Right Column) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Upsell Opportunities -->
+<div class="bg-primary/5 p-6 rounded-xl border border-primary/10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<h3 class="text-primary font-bold text-sm uppercase tracking-tight">Upsell Opportunities</h3>
+</div>
+<div class="space-y-4">
+<div class="p-4 bg-white rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-sm font-bold text-on-surface">L/C Automation</h4>
+<span class="text-[10px] px-2 py-0.5 bg-tertiary-container text-on-tertiary-container rounded-full font-bold">HIGH PROBABILITY</span>
+</div>
+<p class="text-xs text-on-surface-variant mb-3">Automation of Letters of Credit could save the treasury team 20 hours/month.</p>
+<div class="flex justify-between items-center text-[10px] font-bold text-primary">
+<span>EST. REVENUE: $24k/yr</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<div class="p-4 bg-white rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-sm font-bold text-on-surface">API Connect</h4>
+<span class="text-[10px] px-2 py-0.5 bg-surface-container-highest text-on-surface-variant rounded-full font-bold">UPSELL</span>
+</div>
+<p class="text-xs text-on-surface-variant">Real-time data feed directly into their ERP system.</p>
+</div>
+</div>
+</div>
+<!-- Personal Notes -->
+<div class="flex-1 bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">edit_note</span>
+<h3 class="text-on-surface font-bold text-sm uppercase tracking-tight">Personal Notes</h3>
+</div>
+<span class="text-[10px] text-outline italic">Auto-saving...</span>
+</div>
+<textarea class="w-full bg-white border-none rounded-lg p-4 text-sm text-on-surface-variant focus:ring-1 focus:ring-primary h-[300px] resize-none placeholder:italic" placeholder="Add specific questions or reminders here... (e.g., Ask about Sarah's promotion celebration)"></textarea>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="mt-12 pt-6 border-t border-outline-variant/20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded bg-surface-container object-cover grayscale opacity-50" data-alt="Abstract image of a modern boardroom with large glass windows and minimalist furniture at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAubf3vDtW9c4sKq5gJNQZmuTHcb4csEx-k27KsbG8nMxzx6mUFmxEMrMGGhUMG4u0LqOYUBd3itz1N3WRRJ471bDUWGxLV6262riSdM-JdWNVJY6yNOv1GIkZofMvMSdu_smUgClt9q-zYQBj3DQ8p6DTY3PAkzW-YZ0tesgF7zhYIMajlTiVL1DcjJf1UI-PAwed2bqXpQQ2cFAPO9WGikWE6PeVZsiA1_DhLBNERwZdP77nDrBmVEOBBKn64gGNikhQ9bP_tEw"/>
+<div>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Meeting Source</p>
+<p class="text-xs text-on-surface font-medium">Synced from Outlook Calendar via Enterprise Link</p>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest rounded text-[10px] font-bold text-on-surface-variant">#STRATEGIC_ACCOUNT</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded text-[10px] font-bold text-on-surface-variant">#TECH_SECTOR</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>
