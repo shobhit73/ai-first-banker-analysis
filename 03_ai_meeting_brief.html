@@ -74,18 +74,89 @@
                     "fontFamily": {
                         "headline": ["Inter"],
                         "body": ["Inter"],
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#9f403d",
+                        "on-primary-fixed-variant": "#0253cd",
+                        "outline": "#737c81",
+                        "surface-container-high": "#e2e9ee",
+                        "surface-container-low": "#f1f4f7",
+                        "on-error": "#fff7f6",
+                        "primary-fixed-dim": "#c6d3ff",
+                        "on-surface-variant": "#586065",
+                        "secondary-fixed": "#d9e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-dim": "#004aba",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#f8f7ff",
+                        "tertiary-fixed": "#9a83ff",
+                        "on-primary-fixed": "#003993",
+                        "error-dim": "#4e0309",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed-dim": "#8d76f1",
+                        "on-surface": "#2b3438",
+                        "on-secondary-fixed": "#323f5d",
+                        "surface-container": "#eaeef2",
+                        "outline-variant": "#aab3b9",
+                        "on-secondary-fixed-variant": "#4e5b7b",
+                        "inverse-on-surface": "#9b9d9f",
+                        "primary": "#0c56d0",
+                        "on-error-container": "#752121",
+                        "surface-container-highest": "#dbe4ea",
+                        "inverse-surface": "#0c0f10",
+                        "surface": "#f8f9fb",
+                        "tertiary-dim": "#563cb6",
+                        "on-tertiary-fixed": "#000000",
+                        "on-secondary": "#f9f8ff",
+                        "primary-container": "#dae2ff",
+                        "on-tertiary": "#fcf7ff",
+                        "surface-variant": "#dbe4ea",
+                        "error-container": "#fe8983",
+                        "surface-tint": "#0c56d0",
+                        "secondary-fixed-dim": "#c7d4f9",
+                        "on-primary-container": "#004ab9",
+                        "tertiary": "#624ac3",
+                        "on-background": "#2b3438",
+                        "inverse-primary": "#5c8bff",
+                        "surface-dim": "#d1dce2",
+                        "secondary-container": "#d9e2ff",
+                        "secondary-dim": "#465372",
+                        "secondary": "#525f7f",
+                        "tertiary-container": "#9a83ff",
+                        "primary-fixed": "#dae2ff",
+                        "on-tertiary-container": "#180055",
+                        "on-secondary-container": "#445171",
+                        "on-tertiary-fixed-variant": "#230072"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
                         "label": ["Inter"]
                     }
                 },
             },
         }
     </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .glass-ai {
+<style>        .glass-ai {
             background: rgba(154, 131, 255, 0.08);
             backdrop-filter: blur(12px);
             border-left: 2px solid #624ac3;
@@ -94,7 +165,7 @@
 </head>
 <body class="bg-background text-on-background flex h-screen overflow-hidden">
 <!-- SideNavBar -->
-<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
+<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2 overflow-y-auto">
 <div class="mb-10 px-4">
 <h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger</h1>
 <p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
