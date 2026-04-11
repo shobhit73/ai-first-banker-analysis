@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit & Activity Ledger | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    darkMode:"class",
+    theme:{extend:{"colors":{"error":"#9f403d","surface-container-low":"#f1f4f7","on-surface-variant":"#586065","background":"#f8f9fb","on-surface":"#2b3438","surface-container":"#eaeef2","primary":"#0c56d0","surface":"#f8f9fb","tertiary":"#624ac3","secondary":"#525f7f"},"fontFamily":{"inter":["Inter","sans-serif"]}}}
+}
+</script>
+<style>
+body { font-family: 'Inter', sans-serif; background: #f8f9fb; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+.timeline-line { position: relative; }
+.timeline-line::before { content: ''; position: absolute; left: 19px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, #e2e8f0, #f1f5f9); }
+.log-row:hover { background: #f8fafc; }
+.filter-chip { cursor: pointer; transition: all 0.2s; }
+.filter-chip.active { background: #0c56d0; color: white; border-color: #0c56d0; }
+.badge-ai { background: #f5f3ff; color: #624ac3; }
+.badge-crm { background: #eff6ff; color: #0c56d0; }
+.badge-doc { background: #fff7ed; color: #d97706; }
+.badge-blocker { background: #fff1f2; color: #9f403d; }
+.badge-task { background: #f0fdf4; color: #16a34a; }
+.badge-review { background: #fdf4ff; color: #9333ea; }
+.badge-system { background: #f1f5f9; color: #64748b; }
+.immutable-badge { background: linear-gradient(90deg, #f0fdf4, #dcfce7); }
+</style>
+</head>
+<body class="flex min-h-screen">
+
+<!-- SideNavBar -->
+<aside style="position:fixed;top:0;left:0;bottom:0;width:256px;z-index:50;background:#f8fafc;display:flex;flex-direction:column;padding:24px;gap:8px;border-right:1px solid #f1f5f9;">
+<div style="margin-bottom:32px;padding:0 16px;">
+<h1 style="font-size:15px;font-weight:900;letter-spacing:-0.03em;color:#0f172a;text-transform:uppercase;">Sovereign Ledger</h1>
+<p style="font-size:12px;color:#94a3b8;margin-top:2px;">Enterprise Terminal</p>
+</div>
+<nav style="flex:1;display:flex;flex-direction:column;gap:2px;">
+<a href="index.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">dashboard</span>Dashboard</a>
+<a href="02_customer_360.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">groups</span>Customers</a>
+<a href="11_tasks.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">assignment</span>Tasks</a>
+<a href="03_ai_meeting_brief.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">calendar_today</span>Meetings</a>
+<a href="05_documents_workbench.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">description</span>Documents</a>
+<a href="04_post_meeting_follow_up.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">shortcut</span>Follow-ups</a>
+<a href="06_blockers.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">block</span>Blockers</a>
+<a href="12_audit_log.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#0c56d0;font-size:13px;font-weight:700;background:#eff6ff;"><span class="material-symbols-outlined" style="font-size:18px;">policy</span>Audit Log</a>
+<a href="07_settings.html" style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:8px;text-decoration:none;color:#64748b;font-size:13px;font-weight:500;transition:all 0.2s;" onmouseover="this.style.color='#0c56d0';this.style.background='#eff6ff'" onmouseout="this.style.color='#64748b';this.style.background='none'"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">settings</span>Settings</a>
+</nav>
+<div style="border-top:1px solid #e2e8f0;padding-top:16px;display:flex;flex-direction:column;gap:2px;">
+<a href="javascript:void(0)" style="display:flex;align-items:center;gap:12px;padding:10px 16px;text-decoration:none;color:#94a3b8;font-size:13px;"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">help_outline</span>Support</a>
+<a href="javascript:void(0)" style="display:flex;align-items:center;gap:12px;padding:10px 16px;text-decoration:none;color:#94a3b8;font-size:13px;"><span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 0;">logout</span>Sign Out</a>
+</div>
+</aside>
+
+<div style="margin-left:256px;flex:1;display:flex;flex-direction:column;min-width:0;">
+
+<!-- Header -->
+<header style="position:fixed;top:0;right:0;left:256px;height:64px;z-index:40;background:white;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid #f1f5f9;">
+<div style="display:flex;align-items:center;gap:20px;">
+<span style="font-size:18px;font-weight:900;letter-spacing:-0.02em;color:#0f172a;white-space:nowrap;">Sovereign Ledger</span>
+<div style="position:relative;display:flex;align-items:center;">
+<span class="material-symbols-outlined" style="position:absolute;left:10px;color:#94a3b8;font-size:16px;font-variation-settings:'FILL' 0;">search</span>
+<input id="log-search" oninput="filterLogs()" style="background:#f1f5f9;border:none;border-radius:8px;padding:6px 12px 6px 34px;font-size:13px;width:220px;outline:none;" placeholder="Search audit events..." type="text"/>
+</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+<button onclick="exportCSV()" style="display:flex;align-items:center;gap:6px;padding:8px 16px;background:#0c56d0;color:white;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:0.04em;">
+<span class="material-symbols-outlined" style="font-size:16px;">download</span>Export CSV
+</button>
+<div style="position:relative;" id="notif-container">
+<button onclick="toggleDropdown('notif-dropdown','account-dropdown')" style="position:relative;border:none;background:none;cursor:pointer;padding:8px;border-radius:50%;color:#64748b;display:flex;align-items:center;" onmouseover="this.style.background='#f1f5f9'" onmouseout="this.style.background='none'">
+<span class="material-symbols-outlined" style="font-size:22px;font-variation-settings:'FILL' 0;">notifications</span>
+<span style="position:absolute;top:8px;right:8px;width:8px;height:8px;background:#ef4444;border-radius:50%;border:2px solid white;"></span>
+</button>
+<div id="notif-dropdown" style="display:none;position:absolute;right:0;top:50px;width:300px;background:white;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.12);z-index:1000;overflow:hidden;">
+<div style="padding:14px 20px;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:13px;font-weight:900;color:#0f172a;">Notifications</span><button style="font-size:10px;color:#0c56d0;background:none;border:none;cursor:pointer;font-weight:700;text-transform:uppercase;">Mark all read</button></div>
+<a href="06_blockers.html" style="display:flex;gap:12px;padding:12px 20px;text-decoration:none;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><div style="width:30px;height:30px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span class="material-symbols-outlined" style="color:#ef4444;font-size:14px;">block</span></div><div><p style="font-size:12px;font-weight:700;color:#0f172a;margin:0;">Critical Blocker: Meridian Inc</p><p style="font-size:10px;color:#94a3b8;margin:4px 0 0;font-weight:700;color:#0c56d0;">2 min ago</p></div></a>
+<div style="padding:10px 20px;background:#f8fafc;border-top:1px solid #f1f5f9;"><a href="10_notifications.html" style="font-size:10px;font-weight:900;color:#0c56d0;text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;">View All &rarr;</a></div>
+</div>
+</div>
+<div style="position:relative;" id="account-container">
+<button onclick="toggleDropdown('account-dropdown','notif-dropdown')" style="width:34px;height:34px;border-radius:50%;overflow:hidden;border:2px solid #e2e8f0;cursor:pointer;padding:0;background:none;" onmouseover="this.style.borderColor='#0c56d0'" onmouseout="this.style.borderColor='#e2e8f0'">
+<img alt="User Profile" style="width:100%;height:100%;object-fit:cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</button>
+<div id="account-dropdown" style="display:none;position:absolute;right:0;top:50px;width:240px;background:white;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,0.12);z-index:1000;overflow:hidden;">
+<div style="display:flex;align-items:center;gap:12px;padding:14px;background:#f8fafc;border-bottom:1px solid #f1f5f9;"><img style="width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/><div><p style="font-size:13px;font-weight:900;color:#0f172a;margin:0;">Alexander Ross</p><p style="font-size:10px;color:#94a3b8;margin:2px 0 0;">Sr. Relationship Manager</p></div></div>
+<div style="padding:6px 0;"><a href="09_profile.html" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#334155;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#94a3b8;font-variation-settings:'FILL' 0;">manage_accounts</span>Profile &amp; Security</a><a href="07_settings.html" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#334155;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#94a3b8;font-variation-settings:'FILL' 0;">settings</span>AI Copilot Settings</a></div>
+<div style="padding:6px 0;border-top:1px solid #f1f5f9;"><a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:9px 14px;text-decoration:none;font-size:13px;font-weight:600;color:#ef4444;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='white'"><span class="material-symbols-outlined" style="font-size:16px;color:#ef4444;font-variation-settings:'FILL' 0;">logout</span>Sign Out</a></div>
+</div>
+</div>
+</div>
+</header>
+
+<!-- Main -->
+<main style="padding-top:80px;padding:96px 32px 48px;max-width:1400px;margin:0 auto;width:100%;">
+
+    <!-- Page Header -->
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px;">
+        <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                <span class="material-symbols-outlined" style="color:#0c56d0;font-size:24px;">policy</span>
+                <h1 style="font-size:26px;font-weight:900;color:#0f172a;letter-spacing:-0.03em;margin:0;">Audit & Activity Ledger</h1>
+                <span style="background:#f0fdf4;color:#16a34a;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.08em;border:1px solid #bbf7d0;">Immutable Log</span>
+            </div>
+            <p style="font-size:13px;color:#64748b;margin:0;">Complete tamper-proof audit trail of all AI outputs, human actions, and system events.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+            <select id="date-filter" onchange="filterLogs()" style="padding:8px 12px;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;font-weight:600;color:#334155;background:white;cursor:pointer;outline:none;">
+                <option value="all">All Time</option>
+                <option value="today" selected>Today</option>
+                <option value="week">Last 7 Days</option>
+                <option value="month">Last 30 Days</option>
+            </select>
+            <button onclick="exportCSV()" style="display:flex;align-items:center;gap:6px;padding:8px 16px;background:#f1f5f9;color:#334155;border:1px solid #e2e8f0;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;">
+                <span class="material-symbols-outlined" style="font-size:15px;font-variation-settings:'FILL' 0;">download</span>Export
+            </button>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-bottom:28px;">
+        <div style="background:white;border:1px solid #f1f5f9;border-radius:16px;padding:18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <p style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px;">Total Events</p>
+            <p style="font-size:28px;font-weight:900;color:#0f172a;margin:0;">247</p>
+            <p style="font-size:10px;color:#94a3b8;margin:4px 0 0;">Today</p>
+        </div>
+        <div style="background:white;border:1px solid #f1f5f9;border-radius:16px;padding:18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <p style="font-size:10px;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px;">AI Outputs</p>
+            <p style="font-size:28px;font-weight:900;color:#7c3aed;margin:0;">38</p>
+            <p style="font-size:10px;color:#94a3b8;margin:4px 0 0;">Generated</p>
+        </div>
+        <div style="background:white;border:1px solid #f1f5f9;border-radius:16px;padding:18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <p style="font-size:10px;font-weight:800;color:#0c56d0;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px;">CRM Syncs</p>
+            <p style="font-size:28px;font-weight:900;color:#0c56d0;margin:0;">96</p>
+            <p style="font-size:10px;color:#94a3b8;margin:4px 0 0;">Records Updated</p>
+        </div>
+        <div style="background:white;border:1px solid #f1f5f9;border-radius:16px;padding:18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <p style="font-size:10px;font-weight:800;color:#d97706;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px;">Doc Reminders</p>
+            <p style="font-size:28px;font-weight:900;color:#d97706;margin:0;">12</p>
+            <p style="font-size:10px;color:#94a3b8;margin:4px 0 0;">Sent</p>
+        </div>
+        <div style="background:white;border:1px solid #f1f5f9;border-radius:16px;padding:18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <p style="font-size:10px;font-weight:800;color:#9f403d;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px;">Escalations</p>
+            <p style="font-size:28px;font-weight:900;color:#9f403d;margin:0;">5</p>
+            <p style="font-size:10px;color:#94a3b8;margin:4px 0 0;">Blocker Events</p>
+        </div>
+        <div style="background:white;border:1px solid #f1f5f9;border-radius:16px;padding:18px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04);">
+            <p style="font-size:10px;font-weight:800;color:#16a34a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 6px;">Human Reviews</p>
+            <p style="font-size:28px;font-weight:900;color:#16a34a;margin:0;">21</p>
+            <p style="font-size:10px;color:#94a3b8;margin:4px 0 0;">Approved</p>
+        </div>
+    </div>
+
+    <!-- Filter Chips -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+        <span style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.06em;">Filter:</span>
+        <button onclick="setFilter('all')" class="filter-chip active" id="chip-all" style="padding:5px 14px;border-radius:20px;border:1px solid #0c56d0;font-size:11px;font-weight:700;background:#0c56d0;color:white;cursor:pointer;letter-spacing:0.04em;">All Events</button>
+        <button onclick="setFilter('ai')" class="filter-chip" id="chip-ai" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">🤖 AI Output</button>
+        <button onclick="setFilter('crm')" class="filter-chip" id="chip-crm" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">🔄 CRM Sync</button>
+        <button onclick="setFilter('doc')" class="filter-chip" id="chip-doc" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">📄 Document</button>
+        <button onclick="setFilter('blocker')" class="filter-chip" id="chip-blocker" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">🚫 Blocker</button>
+        <button onclick="setFilter('task')" class="filter-chip" id="chip-task" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">✅ Task</button>
+        <button onclick="setFilter('review')" class="filter-chip" id="chip-review" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">👁 Review</button>
+        <button onclick="setFilter('system')" class="filter-chip" id="chip-system" style="padding:5px 14px;border-radius:20px;border:1px solid #e2e8f0;font-size:11px;font-weight:700;background:white;color:#64748b;cursor:pointer;letter-spacing:0.04em;">⚙ System</button>
+    </div>
+
+    <!-- Log Table -->
+    <div style="background:white;border:1px solid #f1f5f9;border-radius:20px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);" id="log-table-wrap">
+        <!-- Table Header -->
+        <div style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;background:#f8fafc;border-bottom:1px solid #f1f5f9;padding:10px 20px;">
+            <span style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;">Timestamp</span>
+            <span style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;padding-left:8px;">Event</span>
+            <span style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;">Actor</span>
+            <span style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;">Entity</span>
+            <span style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;">Type</span>
+            <span style="font-size:10px;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;">Status</span>
+        </div>
+
+        <!-- Log Rows -->
+        <div id="log-rows">
+
+        <!-- TODAY GROUP -->
+        <div class="log-group-header" style="background:linear-gradient(90deg,#f8fafc,white);padding:8px 20px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;gap:8px;">
+            <span style="font-size:11px;font-weight:900;color:#0f172a;text-transform:uppercase;letter-spacing:0.06em;">Today — April 11, 2026</span>
+            <span style="font-size:10px;font-weight:600;color:#94a3b8;">58 events</span>
+        </div>
+
+        <!-- Row 1: AI Brief Generated -->
+        <div class="log-row" data-type="ai" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">09:02:14 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#7c3aed;">auto_awesome</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">AI Meeting Brief Generated</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">Brief for <strong>Sarah Miller (TechCorp)</strong> — 09:00 AM meeting. Included yield analysis, 3 risk flags, renewal timeline. Confidence: <strong style="color:#16a34a;">97%</strong></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#f5f3ff;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#7c3aed;">smart_toy</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">Sovereign AI</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">TechCorp Solutions</span></div>
+            <div><span class="badge-ai" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">AI Output</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">Done</span></div>
+        </div>
+
+        <!-- Row 2: Human Review/Approval -->
+        <div class="log-row" data-type="review" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">09:11:47 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#9333ea;">verified</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">AI Brief Reviewed & Approved</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">Alexander Ross reviewed and approved the AI-generated brief for the 09:00 AM TechCorp meeting. No edits made.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#e0e7ff;border-radius:50%;overflow:hidden;"><img style="width:100%;height:100%;object-fit:cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">A. Ross</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">TechCorp Solutions</span></div>
+            <div><span class="badge-review" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">Review</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">Approved</span></div>
+        </div>
+
+        <!-- Row 3: CRM Sync -->
+        <div class="log-row" data-type="crm" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">09:15:02 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#0c56d0;">sync</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Salesforce CRM Sync Completed</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">342 contact records updated. 12 new interactions logged from Outlook calendar. Latency: 1.2s. Next sync: 09:30 AM.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#eff6ff;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#0c56d0;">cloud_sync</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">Salesforce</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">All Clients</span></div>
+            <div><span class="badge-crm" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">CRM Sync</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">OK</span></div>
+        </div>
+
+        <!-- Row 4: Blocker Escalation -->
+        <div class="log-row" data-type="blocker" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">10:03:28 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#9f403d;">warning</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Blocker Escalated to Risk Team</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">KYC compliance blocker for <strong>Meridian Inc</strong> auto-escalated after 48-hour SLA breach. Assigned to Sarah Chen (Risk). Priority: <strong style="color:#ef4444;">CRITICAL</strong></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#ef4444;">robot_2</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">System</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">Meridian Inc</span></div>
+            <div><span class="badge-blocker" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">Blocker</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#9f403d;background:#fef2f2;padding:3px 8px;border-radius:20px;">Escalated</span></div>
+        </div>
+
+        <!-- Row 5: Document Reminder -->
+        <div class="log-row" data-type="doc" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">10:30:00 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#d97706;">mail</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Document Reminder Sent — UBO Declaration</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">AI-drafted reminder email sent to TechCorp CFO Office for outstanding UBO Declaration (Due: Sep 24). 2nd reminder in chain. AI suggested <strong>hard escalation</strong> if no response by Apr 13.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#fffbeb;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#d97706;">smart_toy</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">Sovereign AI</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">TechCorp Solutions</span></div>
+            <div><span class="badge-doc" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">Document</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#d97706;background:#fffbeb;padding:3px 8px;border-radius:20px;">Sent</span></div>
+        </div>
+
+        <!-- Row 6: Task Routing -->
+        <div class="log-row" data-type="task" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">11:15:33 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#16a34a;">task_alt</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Task Routed — Renewal Package</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">AI-suggested task "Draft Renewal Package for Zenith Corp" (Priority 9.8) routed to Alexander Ross. Deadline set: Apr 13. Related documents auto-attached (3 files).</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#f0fdf4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#16a34a;">smart_toy</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">A. Ross</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">Zenith Corp</span></div>
+            <div><span class="badge-task" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">Task</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">Active</span></div>
+        </div>
+
+        <!-- Row 7: Follow-up AI Draft -->
+        <div class="log-row" data-type="ai" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">11:52:09 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#7c3aed;">auto_awesome</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Post-Meeting Follow-up Draft Generated</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">2 follow-up email drafts created for TechCorp (APAC discussion). Tone: <strong>Professional</strong>. Key actions captured: pricing approval & FX margin review. Confidence: <strong style="color:#16a34a;">94%</strong></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#f5f3ff;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#7c3aed;">smart_toy</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">Sovereign AI</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">TechCorp Solutions</span></div>
+            <div><span class="badge-ai" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">AI Output</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#d97706;background:#fffbeb;padding:3px 8px;border-radius:20px;">Pending</span></div>
+        </div>
+
+        <!-- Row 8: Review Approved -->
+        <div class="log-row" data-type="review" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">12:04:51 PM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#9333ea;">rate_review</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Follow-up Draft Edited & Sent</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">A. Ross revised AI draft email (minor tone adjustment, added pricing reference) and sent to TechCorp CFO. Sent via Outlook integration.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#e0e7ff;border-radius:50%;overflow:hidden;"><img style="width:100%;height:100%;object-fit:cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">A. Ross</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">TechCorp Solutions</span></div>
+            <div><span class="badge-review" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">Review</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">Sent</span></div>
+        </div>
+
+        <!-- Row 9: System Login Event -->
+        <div class="log-row" data-type="system" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">01:30:00 PM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#64748b;">lock_open</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">User Session Started (SSO)</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">Alexander Ross authenticated via Azure AD SSO. Device: Chrome/Windows. IP: 192.168.1.45. Session token: SL-2026-04-AR7.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#f1f5f9;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#64748b;">person</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">A. Ross</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">System</span></div>
+            <div><span class="badge-system" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">System</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">OK</span></div>
+        </div>
+
+        <!-- Row 10: AI Risk Score Update -->
+        <div class="log-row" data-type="ai" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">02:18:40 PM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 11, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#7c3aed;">monitoring</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">AI Portfolio Risk Score Updated</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">Nexus Ltd risk classification upgraded from <strong>Low</strong> → <strong style="color:#d97706;">Medium</strong> based on SE Asia transaction velocity (+340% in 7 days). Recommend KYC review trigger.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#f5f3ff;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#7c3aed;">smart_toy</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">Sovereign AI</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">Nexus Ltd</span></div>
+            <div><span class="badge-ai" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">AI Output</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#d97706;background:#fffbeb;padding:3px 8px;border-radius:20px;">Flagged</span></div>
+        </div>
+
+        <!-- YESTERDAY GROUP -->
+        <div class="log-group-header" style="background:linear-gradient(90deg,#f8fafc,white);padding:8px 20px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;gap:8px;border-top:2px solid #f1f5f9;margin-top:4px;">
+            <span style="font-size:11px;font-weight:900;color:#0f172a;text-transform:uppercase;letter-spacing:0.06em;">Yesterday — April 10, 2026</span>
+            <span style="font-size:10px;font-weight:600;color:#94a3b8;">42 events</span>
+        </div>
+
+        <!-- Row 11: CRM Sync -->
+        <div class="log-row" data-type="crm" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">08:45:00 AM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 10, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#0c56d0;">sync_problem</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Outlook Calendar Sync — Partial Failure</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">11 of 14 calendar events synced. 3 events failed (permission scope mismatch). Auto-retry scheduled. Affected: BlueSky Corp meeting on Apr 12.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#eff6ff;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#0c56d0;">cloud_sync</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">Outlook</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">Calendar</span></div>
+            <div><span class="badge-crm" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">CRM Sync</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#d97706;background:#fffbeb;padding:3px 8px;border-radius:20px;">Partial</span></div>
+        </div>
+
+        <!-- Row 12: Blocker Resolved -->
+        <div class="log-row" data-type="blocker" style="display:grid;grid-template-columns:160px 1fr 160px 160px 100px 80px;gap:0;padding:14px 20px;border-bottom:1px solid #f8fafc;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='white'">
+            <div style="display:flex;flex-direction:column;">
+                <span style="font-size:12px;font-weight:700;color:#0f172a;font-family:monospace;">03:12:19 PM</span>
+                <span style="font-size:10px;color:#94a3b8;">Apr 10, 2026</span>
+            </div>
+            <div style="padding-left:8px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px;">
+                    <span class="material-symbols-outlined" style="font-size:16px;color:#16a34a;">check_circle</span>
+                    <span style="font-size:13px;font-weight:700;color:#0f172a;">Blocker Resolved — Credit Underwriting</span>
+                </div>
+                <span style="font-size:11px;color:#64748b;">Underwriting sign-off received for <strong>Titan Tech</strong> credit limit increase. Blocker active for 3.2 days. Resolved by J. Williams (Underwriting). Cleared by system.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:24px;height:24px;background:#f0fdf4;border-radius:50%;display:flex;align-items:center;justify-content:center;"><span class="material-symbols-outlined" style="font-size:12px;color:#16a34a;">person</span></div>
+                <span style="font-size:12px;font-weight:600;color:#334155;">J. Williams</span>
+            </div>
+            <div><span style="font-size:12px;font-weight:600;color:#334155;">Titan Tech</span></div>
+            <div><span class="badge-blocker" style="font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;white-space:nowrap;">Blocker</span></div>
+            <div><span style="font-size:10px;font-weight:700;color:#16a34a;background:#f0fdf4;padding:3px 8px;border-radius:20px;">Resolved</span></div>
+        </div>
+
+        <!-- Load More -->
+        <div style="padding:20px;text-align:center;border-top:1px solid #f1f5f9;">
+            <button onclick="this.textContent='Loading...'" style="padding:10px 28px;border:1px solid #e2e8f0;background:white;border-radius:10px;font-size:12px;font-weight:700;color:#64748b;cursor:pointer;letter-spacing:0.04em;">Load More Events</button>
+        </div>
+
+        </div><!-- end #log-rows -->
+    </div>
+
+</main>
+</div>
+
+<script>
+function toggleDropdown(s,h){var sd=document.getElementById(s),hd=document.getElementById(h);if(hd)hd.style.display='none';if(sd)sd.style.display=(sd.style.display==='block')?'none':'block';}
+document.addEventListener('click',function(e){['notif','account'].forEach(function(k){var d=document.getElementById(k+'-dropdown'),c=document.getElementById(k+'-container');if(d&&c&&!c.contains(e.target))d.style.display='none';});});
+
+var activeFilter = 'all';
+function setFilter(type) {
+    activeFilter = type;
+    document.querySelectorAll('.filter-chip').forEach(function(c){ c.style.background='white'; c.style.color='#64748b'; c.style.borderColor='#e2e8f0'; });
+    var active = document.getElementById('chip-'+type);
+    if(active){ active.style.background='#0c56d0'; active.style.color='white'; active.style.borderColor='#0c56d0'; }
+    filterLogs();
+}
+function filterLogs() {
+    var q = (document.getElementById('log-search').value||'').toLowerCase();
+    document.querySelectorAll('.log-row').forEach(function(row){
+        var typeMatch = (activeFilter === 'all') || (row.getAttribute('data-type') === activeFilter);
+        var textMatch = !q || row.textContent.toLowerCase().includes(q);
+        row.style.display = (typeMatch && textMatch) ? 'grid' : 'none';
+    });
+}
+function exportCSV() {
+    var rows = [['Timestamp','Event','Actor','Entity','Type','Status']];
+    document.querySelectorAll('.log-row').forEach(function(row){
+        var cells = row.querySelectorAll('div');
+        if(cells.length >= 6){ rows.push([cells[0].textContent.trim(), cells[1].textContent.trim(), cells[2].textContent.trim(), cells[3].textContent.trim(), cells[4].textContent.trim(), cells[5].textContent.trim()]); }
+    });
+    var csv = rows.map(function(r){ return r.map(function(c){ return '"'+c.replace(/"/g,'""')+'"'; }).join(','); }).join('\n');
+    var blob = new Blob([csv], {type:'text/csv'});
+    var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'sovereign_audit_log.csv'; a.click();
+}
+</script>
+
+</body></html>
