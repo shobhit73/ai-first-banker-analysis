@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Task Hub | Sovereign Ledger</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Task Hub | Sovereign Ledger</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -33,18 +38,21 @@
             },
         }
     </script>
-<style>
-        body { font-family: 'Inter', sans-serif; }
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        
+
         .glass-ai {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(12, 86, 208, 0.1);
         }
-        
+
         .priority-dot {
             width: 8px;
             height: 8px;
@@ -52,328 +60,457 @@
         }
     </style>
 </head>
+
 <body class="bg-background text-on-surface flex min-h-screen font-inter">
-<!-- SideNavBar -->
-<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
-<div class="mb-10 px-4">
-<h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger</h1>
-<p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
-</div>
-<nav class="flex-1 space-y-1">
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="index.html">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-inter text-sm antialiased">Dashboard</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
-<span class="material-symbols-outlined" data-icon="groups">groups</span>
-<span class="font-inter text-sm antialiased">Customers</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="11_tasks.html">
-<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
-<span class="font-inter text-sm antialiased">Tasks</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="03_ai_meeting_brief.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
-<span class="font-inter text-sm antialiased">Meetings</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="05_documents_workbench.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
-<span class="font-inter text-sm antialiased">Documents</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="04_post_meeting_follow_up.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shortcut</span>
-<span class="font-inter text-sm antialiased">Follow-ups</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="06_blockers.html">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">block</span>
-<span class="font-inter text-sm antialiased">Blockers</span>
-</a>
-<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="07_settings.html">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-inter text-sm antialiased">Settings</span>
-</a>
-</nav>
-<div class="mt-auto space-y-1 pt-6 border-t border-slate-200 dark:border-slate-800">
-<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
-<span class="font-inter text-sm antialiased">Support</span>
-</a>
-<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
-<span class="font-inter text-sm antialiased">Sign Out</span>
-</a>
-</div>
-</aside>
-
-<div class="flex-1 flex flex-col min-w-0 ml-64">
-<!-- TopAppBar -->
-<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
-<div class="flex items-center gap-6 min-w-0">
-<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white shrink-0">Sovereign Ledger</span>
-<div class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
-<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-48 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search tasks..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-3 shrink-0">
-<div class="relative" id="notif-container">
-<button onclick="toggleDropdown('notif-dropdown', 'account-dropdown')" class="p-2 cursor-pointer text-slate-500 hover:text-primary hover:bg-slate-50 rounded-full transition-all relative">
-    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
-    <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-</button>
-<div id="notif-dropdown" class="hidden absolute right-0 top-12 w-80 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
-        <h3 class="text-sm font-black text-slate-900 tracking-tight">Notifications</h3>
-        <button class="text-[10px] font-bold text-primary uppercase tracking-wide hover:opacity-70">Mark all read</button>
-    </div>
-    <div class="divide-y divide-slate-50 max-h-72 overflow-y-auto">
-        <a href="06_blockers.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-            <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-red-500 text-sm">block</span></div>
-            <div><p class="text-xs font-bold text-slate-800">Critical Blocker: Meridian Inc</p><p class="text-[10px] text-slate-400 mt-0.5">Approval loop stalled in Risk. Review required.</p><p class="text-[10px] text-primary font-bold mt-1">2 min ago</p></div>
-        </a>
-        <a href="03_ai_meeting_brief.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-            <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-primary text-sm">auto_awesome</span></div>
-            <div><p class="text-xs font-bold text-slate-800">AI Brief Ready: Sarah Miller</p><p class="text-[10px] text-slate-400 mt-0.5">Meeting at 09:00 AM. Yield data prepped.</p><p class="text-[10px] text-primary font-bold mt-1">18 min ago</p></div>
-        </a>
-        <a href="04_post_meeting_follow_up.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-            <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-purple-500 text-sm">mail</span></div>
-            <div><p class="text-xs font-bold text-slate-800">Follow-up drafted: Nexus Corp</p><p class="text-[10px] text-slate-400 mt-0.5">AI generated 2 follow-up email drafts.</p><p class="text-[10px] text-primary font-bold mt-1">1 hr ago</p></div>
-        </a>
-        <a href="08_integrations.html" class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
-            <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5"><span class="material-symbols-outlined text-green-600 text-sm">sync</span></div>
-            <div><p class="text-xs font-bold text-slate-800">Salesforce Sync Complete</p><p class="text-[10px] text-slate-400 mt-0.5">342 records updated successfully.</p><p class="text-[10px] text-primary font-bold mt-1">3 hr ago</p></div>
-        </a>
-    </div>
-    <div class="px-5 py-3 border-t border-slate-100 bg-slate-50">
-        <a href="10_notifications.html" class="text-[10px] font-black text-primary uppercase tracking-widest hover:opacity-70">View All Notification Settings &rarr;</a>
-    </div>
-</div>
-</div>
-<div class="relative" id="account-container">
-<button onclick="toggleDropdown('account-dropdown', 'notif-dropdown')" class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-slate-100 hover:ring-primary/40 transition-all cursor-pointer">
-    <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
-</button>
-<div id="account-dropdown" class="hidden absolute right-0 top-12 w-64 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
-    <div class="flex items-center gap-3 px-4 py-4 bg-slate-50 border-b border-slate-100">
-        <div class="h-10 w-10 rounded-full bg-slate-200 overflow-hidden ring-2 ring-white shrink-0">
-            <img alt="Alexander Ross" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+    <!-- SideNavBar -->
+    <aside
+        class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
+        <div class="mb-10 px-4">
+            <h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger
+            </h1>
+            <p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
         </div>
-        <div><p class="text-sm font-black text-slate-900">Alexander Ross</p><p class="text-[10px] text-slate-500 font-medium">Sr. Relationship Manager</p></div>
+        <nav class="flex-1 space-y-1">
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="index.html">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span class="font-inter text-sm antialiased">Dashboard</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="02_customer_360.html">
+                <span class="material-symbols-outlined" data-icon="groups">groups</span>
+                <span class="font-inter text-sm antialiased">Customers</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="11_tasks.html">
+                <span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                <span class="font-inter text-sm antialiased">Tasks</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="03_ai_meeting_brief.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+                <span class="font-inter text-sm antialiased">Meetings</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="05_documents_workbench.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+                <span class="font-inter text-sm antialiased">Documents</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="04_post_meeting_follow_up.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shortcut</span>
+                <span class="font-inter text-sm antialiased">Follow-ups</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="06_blockers.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">block</span>
+                <span class="font-inter text-sm antialiased">Blockers</span>
+            </a>
+            <a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200"
+                href="07_settings.html">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span class="font-inter text-sm antialiased">Settings</span>
+            </a>
+        </nav>
+        <div class="mt-auto space-y-1 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all"
+                href="javascript:void(0)">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+                <span class="font-inter text-sm antialiased">Support</span>
+            </a>
+            <a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all"
+                href="javascript:void(0)">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+                <span class="font-inter text-sm antialiased">Sign Out</span>
+            </a>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0 ml-64">
+        <!-- TopAppBar -->
+        <header
+            class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-6 min-w-0">
+                <span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white shrink-0">Sovereign
+                    Ledger</span>
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm"
+                        style="font-variation-settings: 'FILL' 0;">search</span>
+                    <input
+                        class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-48 focus:ring-2 focus:ring-primary/20 transition-all"
+                        placeholder="Search tasks..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="relative" id="notif-container">
+                    <button onclick="toggleDropdown('notif-dropdown', 'account-dropdown')"
+                        class="p-2 cursor-pointer text-slate-500 hover:text-primary hover:bg-slate-50 rounded-full transition-all relative">
+                        <span class="material-symbols-outlined"
+                            style="font-variation-settings: 'FILL' 0;">notifications</span>
+                        <span
+                            class="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+                    </button>
+                    <div id="notif-dropdown"
+                        class="hidden absolute right-0 top-12 w-80 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
+                        <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+                            <h3 class="text-sm font-black text-slate-900 tracking-tight">Notifications</h3>
+                            <button
+                                class="text-[10px] font-bold text-primary uppercase tracking-wide hover:opacity-70">Mark
+                                all read</button>
+                        </div>
+                        <div class="divide-y divide-slate-50 max-h-72 overflow-y-auto">
+                            <a href="06_blockers.html"
+                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5">
+                                    <span class="material-symbols-outlined text-red-500 text-sm">block</span></div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">Critical Blocker: Meridian Inc</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">Approval loop stalled in Risk. Review
+                                        required.</p>
+                                    <p class="text-[10px] text-primary font-bold mt-1">2 min ago</p>
+                                </div>
+                            </a>
+                            <a href="03_ai_meeting_brief.html"
+                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 mt-0.5">
+                                    <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">AI Brief Ready: Sarah Miller</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">Meeting at 09:00 AM. Yield data
+                                        prepped.</p>
+                                    <p class="text-[10px] text-primary font-bold mt-1">18 min ago</p>
+                                </div>
+                            </a>
+                            <a href="04_post_meeting_follow_up.html"
+                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 mt-0.5">
+                                    <span class="material-symbols-outlined text-purple-500 text-sm">mail</span></div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">Follow-up drafted: Nexus Corp</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">AI generated 2 follow-up email drafts.
+                                    </p>
+                                    <p class="text-[10px] text-primary font-bold mt-1">1 hr ago</p>
+                                </div>
+                            </a>
+                            <a href="08_integrations.html"
+                                class="flex gap-3 px-5 py-3.5 hover:bg-slate-50 transition-colors cursor-pointer group">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
+                                    <span class="material-symbols-outlined text-green-600 text-sm">sync</span></div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">Salesforce Sync Complete</p>
+                                    <p class="text-[10px] text-slate-400 mt-0.5">342 records updated successfully.</p>
+                                    <p class="text-[10px] text-primary font-bold mt-1">3 hr ago</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="px-5 py-3 border-t border-slate-100 bg-slate-50">
+                            <a href="10_notifications.html"
+                                class="text-[10px] font-black text-primary uppercase tracking-widest hover:opacity-70">View
+                                All Notification Settings &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative" id="account-container">
+                    <button onclick="toggleDropdown('account-dropdown', 'notif-dropdown')"
+                        class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ring-2 ring-slate-100 hover:ring-primary/40 transition-all cursor-pointer">
+                        <img alt="User Profile" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A" />
+                    </button>
+                    <div id="account-dropdown"
+                        class="hidden absolute right-0 top-12 w-64 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
+                        <div class="flex items-center gap-3 px-4 py-4 bg-slate-50 border-b border-slate-100">
+                            <div class="h-10 w-10 rounded-full bg-slate-200 overflow-hidden ring-2 ring-white shrink-0">
+                                <img alt="Alexander Ross" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A" />
+                            </div>
+                            <div>
+                                <p class="text-sm font-black text-slate-900">Alexander Ross</p>
+                                <p class="text-[10px] text-slate-500 font-medium">Sr. Relationship Manager</p>
+                            </div>
+                        </div>
+                        <div class="py-2">
+                            <a href="09_profile.html"
+                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
+                                <span class="material-symbols-outlined text-slate-400 text-base"
+                                    style="font-variation-settings: 'FILL' 0;">manage_accounts</span>Profile &amp;
+                                Security
+                            </a>
+                            <a href="07_settings.html"
+                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
+                                <span class="material-symbols-outlined text-slate-400 text-base"
+                                    style="font-variation-settings: 'FILL' 0;">settings</span>AI Copilot Settings
+                            </a>
+                            <a href="10_notifications.html"
+                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
+                                <span class="material-symbols-outlined text-slate-400 text-base"
+                                    style="font-variation-settings: 'FILL' 0;">notifications</span>Notification Prefs
+                            </a>
+                        </div>
+                        <div class="py-2 border-t border-slate-100">
+                            <a href="javascript:void(0)"
+                                class="flex items-center gap-3 px-4 py-2.5 hover:bg-red-50 transition-colors cursor-pointer text-sm text-red-500 font-semibold">
+                                <span class="material-symbols-outlined text-red-400 text-base"
+                                    style="font-variation-settings: 'FILL' 0;">logout</span>Sign Out
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content -->
+        <main class="pt-24 p-8 max-w-[1400px] mx-auto w-full">
+
+            <!-- Metrics Row -->
+            <div class="grid grid-cols-4 gap-6 mb-10">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Total Active Tasks
+                    </p>
+                    <h3 class="text-3xl font-black text-on-surface">24</h3>
+                    <div class="flex items-center gap-2 mt-2">
+                        <span
+                            class="text-[10px] bg-green-50 text-green-600 px-2 py-0.5 rounded font-bold uppercase tracking-wide">6
+                            Completed Today</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Avg AI Priority</p>
+                    <h3 class="text-3xl font-black text-tertiary">8.4<span
+                            class="text-sm text-slate-400 font-bold ml-1">/ 10</span></h3>
+                    <div class="flex items-center gap-2 mt-2">
+                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">High Strategic
+                            Value</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Pending Approvals
+                    </p>
+                    <h3 class="text-3xl font-black text-error">3</h3>
+                    <div class="flex items-center gap-2 mt-2 text-error">
+                        <span class="material-symbols-outlined text-xs">warning</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wide">2 Past Due</span>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Pipeline Health</p>
+                    <h3 class="text-3xl font-black text-on-surface">92<span
+                            class="text-sm font-bold text-slate-400">%</span></h3>
+                    <div class="w-full bg-slate-100 h-1.5 rounded-full mt-3">
+                        <div class="bg-primary w-[92%] h-full rounded-full shadow-[0_0_10px_rgba(12,86,208,0.3)]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-10">
+                <!-- Main Task List -->
+                <div class="flex-1">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-black text-on-surface tracking-tight">Smart Worklist</h2>
+                        <div class="flex gap-2">
+                            <button
+                                class="px-4 py-1.5 bg-surface-container-low text-[10px] font-bold rounded-lg uppercase transition-all hover:bg-surface-container text-slate-600">All</button>
+                            <button
+                                class="px-4 py-1.5 bg-primary/10 text-primary text-[10px] font-bold rounded-lg uppercase transition-all">Strategic</button>
+                            <button
+                                class="px-4 py-1.5 bg-white border border-slate-100 text-[10px] font-bold rounded-lg uppercase text-slate-400">Expiring</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Task Card 1 -->
+                        <div
+                            class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group">
+                            <div class="flex items-start gap-5">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-tertiary/5 flex items-center justify-center text-tertiary">
+                                    <span class="material-symbols-outlined">auto_awesome</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center gap-3 mb-1">
+                                                <h4 class="text-base font-bold text-on-surface">Draft Renewal Package
+                                                    for Zenith Corp</h4>
+                                                <span
+                                                    class="text-[10px] font-black px-2 py-0.5 bg-red-50 text-red-600 rounded uppercase">AI
+                                                    Priority 9.8</span>
+                                            </div>
+                                            <p class="text-xs text-slate-500 mb-4">Loan facility expires in 45 days. AI
+                                                has analyzed financials and suggests a 0.25% margin compression.</p>
+                                        </div>
+                                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Due
+                                            in 2 days</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <button
+                                            class="px-4 py-1.5 bg-primary text-white text-[10px] font-black rounded uppercase tracking-wider hover:opacity-90">Auto-Generate
+                                            Draft</button>
+                                        <button
+                                            class="px-4 py-1.5 bg-surface-container-low text-[10px] font-bold rounded uppercase text-slate-600 hover:bg-surface-container">Review
+                                            Financials</button>
+                                        <div class="ml-auto flex -space-x-2">
+                                            <div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
+                                            <div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task Card 2 -->
+                        <div
+                            class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group">
+                            <div class="flex items-start gap-5">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center gap-3 mb-1">
+                                                <h4 class="text-base font-bold text-on-surface">KYC/AML Periodic Review
+                                                    - Global Logistics</h4>
+                                                <span
+                                                    class="text-[10px] font-black px-2 py-0.5 bg-blue-50 text-blue-600 rounded uppercase">AI
+                                                    Priority 7.2</span>
+                                            </div>
+                                            <p class="text-xs text-slate-500 mb-4">Standard 3-year review. AI has
+                                                cross-referenced docs and found 1 missing ID certificate.</p>
+                                        </div>
+                                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Due
+                                            in 5 days</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <button
+                                            class="px-4 py-1.5 bg-surface-container-low text-[10px] font-bold rounded uppercase text-slate-600">Send
+                                            Nudge</button>
+                                        <button
+                                            class="px-4 py-1.5 bg-white border border-slate-100 text-[10px] font-bold rounded uppercase text-slate-400">Mark
+                                            as Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Task Card 3 -->
+                        <div
+                            class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group">
+                            <div class="flex items-start gap-5">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
+                                    <span class="material-symbols-outlined">trending_up</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <div class="flex items-center gap-3 mb-1">
+                                                <h4 class="text-base font-bold text-on-surface">Opportunity: Trade
+                                                    Finance Upsell (Nexus Ltd)</h4>
+                                                <span
+                                                    class="text-[10px] font-black px-2 py-0.5 bg-purple-50 text-purple-600 rounded uppercase">AI
+                                                    Priority 8.5</span>
+                                            </div>
+                                            <p class="text-xs text-slate-500 mb-4">Nexus has sudden increase in SE Asia
+                                                transactions. Recommend Trade Suite.</p>
+                                        </div>
+                                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">New
+                                            Today</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <button
+                                            class="px-4 py-1.5 bg-primary text-white text-[10px] font-black rounded uppercase tracking-wider hover:opacity-90">Prepare
+                                            Pitch</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistant Sidebar -->
+                <div class="w-80 shrink-0">
+                    <div class="glass-ai rounded-2xl p-6 sticky top-24">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-tertiary">psychology</span>
+                            <h3 class="text-sm font-black uppercase text-on-surface tracking-wider">Next Best Action
+                            </h3>
+                        </div>
+
+                        <div class="mb-6">
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">High Value
+                                Targeted</p>
+                            <div class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm">
+                                <h4 class="text-xs font-bold text-on-surface mb-1 text-center">Zenith Corp Renewal</h4>
+                                <div
+                                    class="flex justify-between items-center text-[10px] text-slate-500 font-bold mt-3">
+                                    <span>Probability</span>
+                                    <span class="text-green-600">88%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-tertiary/5 border-l-4 border-tertiary rounded-r-xl">
+                                <p class="text-xs font-medium text-slate-700 leading-relaxed">"Alexander, Zenith Corp
+                                    just uploaded their Q4 financials to the Dataroom. I suggest updating the renewal
+                                    scope immediately."</p>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-tertiary text-white text-[11px] font-black rounded-xl uppercase tracking-widest shadow-lg shadow-tertiary/20 hover:opacity-90 transition-all">Execute
+                                Update</button>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-slate-200">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Approvals
+                                (3)</p>
+                            <div class="space-y-3">
+                                <div
+                                    class="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors cursor-pointer group">
+                                    <div class="flex items-center gap-3">
+                                        <div class="priority-dot bg-error"></div>
+                                        <span
+                                            class="text-[11px] font-bold text-on-surface group-hover:text-primary transition-colors">Risk:
+                                            Titan Tech</span>
+                                    </div>
+                                    <span class="material-symbols-outlined text-sm text-slate-300">chevron_right</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors cursor-pointer group">
+                                    <div class="flex items-center gap-3">
+                                        <div class="priority-dot bg-amber-400"></div>
+                                        <span
+                                            class="text-[11px] font-bold text-on-surface group-hover:text-primary transition-colors">Pricing:
+                                            BlueSky</span>
+                                    </div>
+                                    <span class="material-symbols-outlined text-sm text-slate-300">chevron_right</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
-    <div class="py-2">
-        <a href="09_profile.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
-            <span class="material-symbols-outlined text-slate-400 text-base" style="font-variation-settings: 'FILL' 0;">manage_accounts</span>Profile &amp; Security
-        </a>
-        <a href="07_settings.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
-            <span class="material-symbols-outlined text-slate-400 text-base" style="font-variation-settings: 'FILL' 0;">settings</span>AI Copilot Settings
-        </a>
-        <a href="10_notifications.html" class="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 transition-colors cursor-pointer text-sm text-slate-700 font-semibold">
-            <span class="material-symbols-outlined text-slate-400 text-base" style="font-variation-settings: 'FILL' 0;">notifications</span>Notification Prefs
-        </a>
-    </div>
-    <div class="py-2 border-t border-slate-100">
-        <a href="javascript:void(0)" class="flex items-center gap-3 px-4 py-2.5 hover:bg-red-50 transition-colors cursor-pointer text-sm text-red-500 font-semibold">
-            <span class="material-symbols-outlined text-red-400 text-base" style="font-variation-settings: 'FILL' 0;">logout</span>Sign Out
-        </a>
-    </div>
-</div>
-</div>
-</div>
-</header>
-<!-- Main Content -->
-<main class="pt-24 p-8 max-w-[1400px] mx-auto w-full">
+
     
-    <!-- Metrics Row -->
-    <div class="grid grid-cols-4 gap-6 mb-10">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Total Active Tasks</p>
-            <h3 class="text-3xl font-black text-on-surface">24</h3>
-            <div class="flex items-center gap-2 mt-2">
-                <span class="text-[10px] bg-green-50 text-green-600 px-2 py-0.5 rounded font-bold uppercase tracking-wide">6 Completed Today</span>
-            </div>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Avg AI Priority</p>
-            <h3 class="text-3xl font-black text-tertiary">8.4<span class="text-sm text-slate-400 font-bold ml-1">/ 10</span></h3>
-            <div class="flex items-center gap-2 mt-2">
-                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wide">High Strategic Value</span>
-            </div>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Pending Approvals</p>
-            <h3 class="text-3xl font-black text-error">3</h3>
-            <div class="flex items-center gap-2 mt-2 text-error">
-                <span class="material-symbols-outlined text-xs">warning</span>
-                <span class="text-[10px] font-bold uppercase tracking-wide">2 Past Due</span>
-            </div>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Pipeline Health</p>
-            <h3 class="text-3xl font-black text-on-surface">92<span class="text-sm font-bold text-slate-400">%</span></h3>
-            <div class="w-full bg-slate-100 h-1.5 rounded-full mt-3">
-                <div class="bg-primary w-[92%] h-full rounded-full shadow-[0_0_10px_rgba(12,86,208,0.3)]"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="flex gap-10">
-        <!-- Main Task List -->
-        <div class="flex-1">
-            <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-black text-on-surface tracking-tight">Smart Worklist</h2>
-                <div class="flex gap-2">
-                    <button class="px-4 py-1.5 bg-surface-container-low text-[10px] font-bold rounded-lg uppercase transition-all hover:bg-surface-container text-slate-600">All</button>
-                    <button class="px-4 py-1.5 bg-primary/10 text-primary text-[10px] font-bold rounded-lg uppercase transition-all">Strategic</button>
-                    <button class="px-4 py-1.5 bg-white border border-slate-100 text-[10px] font-bold rounded-lg uppercase text-slate-400">Expiring</button>
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                <!-- Task Card 1 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group">
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 rounded-xl bg-tertiary/5 flex items-center justify-center text-tertiary">
-                           <span class="material-symbols-outlined">auto_awesome</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <h4 class="text-base font-bold text-on-surface">Draft Renewal Package for Zenith Corp</h4>
-                                        <span class="text-[10px] font-black px-2 py-0.5 bg-red-50 text-red-600 rounded uppercase">AI Priority 9.8</span>
-                                    </div>
-                                    <p class="text-xs text-slate-500 mb-4">Loan facility expires in 45 days. AI has analyzed financials and suggests a 0.25% margin compression.</p>
-                                </div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Due in 2 days</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <button class="px-4 py-1.5 bg-primary text-white text-[10px] font-black rounded uppercase tracking-wider hover:opacity-90">Auto-Generate Draft</button>
-                                <button class="px-4 py-1.5 bg-surface-container-low text-[10px] font-bold rounded uppercase text-slate-600 hover:bg-surface-container">Review Financials</button>
-                                <div class="ml-auto flex -space-x-2">
-                                    <div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
-                                    <div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 2 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group">
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400">
-                           <span class="material-symbols-outlined">description</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <h4 class="text-base font-bold text-on-surface">KYC/AML Periodic Review - Global Logistics</h4>
-                                        <span class="text-[10px] font-black px-2 py-0.5 bg-blue-50 text-blue-600 rounded uppercase">AI Priority 7.2</span>
-                                    </div>
-                                    <p class="text-xs text-slate-500 mb-4">Standard 3-year review. AI has cross-referenced docs and found 1 missing ID certificate.</p>
-                                </div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Due in 5 days</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <button class="px-4 py-1.5 bg-surface-container-low text-[10px] font-bold rounded uppercase text-slate-600">Send Nudge</button>
-                                <button class="px-4 py-1.5 bg-white border border-slate-100 text-[10px] font-bold rounded uppercase text-slate-400">Mark as Done</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Task Card 3 -->
-                <div class="bg-white rounded-2xl border border-slate-100 p-6 shadow-sm hover:shadow-md transition-all cursor-pointer group">
-                    <div class="flex items-start gap-5">
-                        <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
-                           <span class="material-symbols-outlined">trending_up</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-1">
-                                        <h4 class="text-base font-bold text-on-surface">Opportunity: Trade Finance Upsell (Nexus Ltd)</h4>
-                                        <span class="text-[10px] font-black px-2 py-0.5 bg-purple-50 text-purple-600 rounded uppercase">AI Priority 8.5</span>
-                                    </div>
-                                    <p class="text-xs text-slate-500 mb-4">Nexus has sudden increase in SE Asia transactions. Recommend Trade Suite.</p>
-                                </div>
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">New Today</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <button class="px-4 py-1.5 bg-primary text-white text-[10px] font-black rounded uppercase tracking-wider hover:opacity-90">Prepare Pitch</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- AI Assistant Sidebar -->
-        <div class="w-80 shrink-0">
-            <div class="glass-ai rounded-2xl p-6 sticky top-24">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="material-symbols-outlined text-tertiary">psychology</span>
-                    <h3 class="text-sm font-black uppercase text-on-surface tracking-wider">Next Best Action</h3>
-                </div>
-                
-                <div class="mb-6">
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">High Value Targeted</p>
-                    <div class="bg-white border border-slate-100 p-4 rounded-xl shadow-sm">
-                        <h4 class="text-xs font-bold text-on-surface mb-1 text-center">Zenith Corp Renewal</h4>
-                        <div class="flex justify-between items-center text-[10px] text-slate-500 font-bold mt-3">
-                            <span>Probability</span>
-                            <span class="text-green-600">88%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="p-4 bg-tertiary/5 border-l-4 border-tertiary rounded-r-xl">
-                        <p class="text-xs font-medium text-slate-700 leading-relaxed">"Alexander, Zenith Corp just uploaded their Q4 financials to the Dataroom. I suggest updating the renewal scope immediately."</p>
-                    </div>
-                    <button class="w-full py-3 bg-tertiary text-white text-[11px] font-black rounded-xl uppercase tracking-widest shadow-lg shadow-tertiary/20 hover:opacity-90 transition-all">Execute Update</button>
-                </div>
-
-                <div class="mt-8 pt-8 border-t border-slate-200">
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Approvals (3)</p>
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors cursor-pointer group">
-                             <div class="flex items-center gap-3">
-                                 <div class="priority-dot bg-error"></div>
-                                 <span class="text-[11px] font-bold text-on-surface group-hover:text-primary transition-colors">Risk: Titan Tech</span>
-                             </div>
-                             <span class="material-symbols-outlined text-sm text-slate-300">chevron_right</span>
-                        </div>
-                        <div class="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors cursor-pointer group">
-                             <div class="flex items-center gap-3">
-                                 <div class="priority-dot bg-amber-400"></div>
-                                 <span class="text-[11px] font-bold text-on-surface group-hover:text-primary transition-colors">Pricing: BlueSky</span>
-                             </div>
-                             <span class="material-symbols-outlined text-sm text-slate-300">chevron_right</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-</div>
-
 <script>
 function toggleDropdown(showId, hideId) {
-    var show = document.getElementById(showId);
-    var hide = document.getElementById(hideId);
-    if (hide) hide.classList.add('hidden');
-    if (show) show.classList.toggle('hidden');
+  var s = document.getElementById(showId), h = document.getElementById(hideId);
+  if(h) h.style.display='none';
+  if(s) s.style.display = (s.style.display==='none'||s.style.display==='') ? 'block' : 'none';
 }
 document.addEventListener('click', function(e) {
-    var notif = document.getElementById('notif-dropdown');
-    var account = document.getElementById('account-dropdown');
-    var notifBtn = document.getElementById('notif-container');
-    var accountBtn = document.getElementById('account-container');
-    if (notif && notifBtn && !notifBtn.contains(e.target)) notif.classList.add('hidden');
-    if (account && accountBtn && !accountBtn.contains(e.target)) account.classList.add('hidden');
+  ['notif','account'].forEach(function(k) {
+    var d = document.getElementById(k+'-dropdown'), c = document.getElementById(k+'-container');
+    if(d && c && !c.contains(e.target)) d.style.display='none';
+  });
 });
 </script>
-</body></html>
+</body>
+
+</html>
