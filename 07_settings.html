@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#9f403d",
+                        "error-container": "#fe8983",
+                        "surface-container-low": "#f1f4f7",
+                        "on-surface-variant": "#586065",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#f8f7ff",
+                        "background": "#f8f9fb",
+                        "on-surface": "#2b3438",
+                        "surface-container": "#eaeef2",
+                        "primary": "#0c56d0",
+                        "primary-container": "#dae2ff",
+                        "on-primary-container": "#004ab9",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#624ac3",
+                        "secondary": "#525f7f"
+                    },
+                    "fontFamily": {
+                        "inter": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Toggle Switch CSS */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0c56d0;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0c56d0;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 1;
+            border-color: #e2e8f0;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 3rem;
+            height: 1.5rem;
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 1.25rem;
+            height: 1.25rem;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(1.5rem);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger</h1>
+<p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-inter text-sm antialiased">Dashboard</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">groups</span>
+<span class="font-inter text-sm antialiased">Customers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-inter text-sm antialiased">Tasks</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="03_ai_meeting_brief.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+<span class="font-inter text-sm antialiased">Meetings</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="05_documents_workbench.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+<span class="font-inter text-sm antialiased">Documents</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="04_post_meeting_follow_up.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shortcut</span>
+<span class="font-inter text-sm antialiased">Follow-ups</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="06_blockers.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">block</span>
+<span class="font-inter text-sm antialiased">Blockers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-blue-700 dark:text-blue-400 font-bold flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-950/50 rounded-md shadow-sm" href="07_settings.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-inter text-sm antialiased">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-6 border-t border-slate-200 dark:border-slate-800">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+<span class="font-inter text-sm antialiased">Support</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="font-inter text-sm antialiased">Sign Out</span>
+</a>
+</div>
+</aside>
+
+<div class="flex-1 flex flex-col min-w-0 ml-64">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">Sovereign Ledger</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2 ring-2 ring-slate-100 cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 p-8 max-w-[1200px] mx-auto w-full flex gap-10">
+    
+    <!-- Settings Sidebar -->
+    <div class="w-64 shrink-0">
+        <h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-8">Settings</h2>
+        <nav class="space-y-1">
+            <a href="#" class="block px-4 py-2.5 rounded-lg text-sm font-bold bg-primary/10 text-primary transition-colors">
+                AI Copilot Rules
+            </a>
+            <a href="#" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Integrations
+            </a>
+            <a href="#" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Profile & Account
+            </a>
+            <a href="#" class="block px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:bg-surface-container-low transition-colors">
+                Notifications
+            </a>
+        </nav>
+    </div>
+
+    <!-- Settings Content Area -->
+    <div class="flex-1 space-y-8">
+        
+        <!-- AI Preferences Section -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+            <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                <span class="material-symbols-outlined text-tertiary">auto_awesome</span>
+                <div>
+                    <h3 class="text-lg font-bold text-on-surface">AI Copilot Logic</h3>
+                    <p class="text-sm text-slate-500">Configure how the Sovereign AI assists you with daily operations.</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Toggle Item 1 -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h4 class="text-sm font-bold text-on-surface">Auto-draft Meeting Briefs</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">Generates a brief 24 hours prior to calendar events using CRM data.</p>
+                    </div>
+                    <div class="relative inline-block w-[3rem] align-middle select-none">
+                        <input type="checkbox" checked name="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none opacity-0"/>
+                        <label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                    </div>
+                </div>
+                
+                <div class="w-full h-[1px] bg-slate-100"></div>
+
+                <!-- Toggle Item 2 -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h4 class="text-sm font-bold text-on-surface">Proactive Blocker Triage</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">AI will automatically flag stuck processes and suggest escalations.</p>
+                    </div>
+                    <div class="relative inline-block w-[3rem] align-middle select-none">
+                        <input type="checkbox" checked name="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none opacity-0"/>
+                        <label class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <div class="w-full h-[1px] bg-slate-100"></div>
+
+                <!-- Voice & Tone Selector -->
+                <div>
+                    <h4 class="text-sm font-bold text-on-surface mb-2">Communication Tone</h4>
+                    <p class="text-[11px] text-slate-500 mb-4">Select the default voice AI uses when drafting follow-up emails and notes.</p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="border-2 border-primary bg-primary/5 rounded-xl p-4 cursor-pointer">
+                            <span class="text-xs font-bold text-primary block text-center">Professional</span>
+                            <span class="text-[10px] text-center block mt-1 text-slate-600 line-clamp-2">"Following up regarding..."</span>
+                        </div>
+                        <div class="border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white">
+                            <span class="text-xs font-bold text-slate-700 block text-center">Direct & Concise</span>
+                            <span class="text-[10px] text-center block mt-1 text-slate-500 line-clamp-2">"Action items attached."</span>
+                        </div>
+                        <div class="border border-slate-200 hover:border-slate-300 rounded-xl p-4 cursor-pointer transition-colors bg-white">
+                            <span class="text-xs font-bold text-slate-700 block text-center">Warm / Empathetic</span>
+                            <span class="text-[10px] text-center block mt-1 text-slate-500 line-clamp-2">"Great speaking with you..."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations Quick View -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+            <div class="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
+                <span class="material-symbols-outlined text-slate-500">cable</span>
+                <div>
+                    <h3 class="text-lg font-bold text-on-surface">Active Integrations</h3>
+                    <p class="text-sm text-slate-500">Data sources currently connected to your Sovereign terminal.</p>
+                </div>
+                <button class="ml-auto px-4 py-1.5 bg-surface-container-low text-xs font-bold text-on-surface rounded hover:bg-surface-container transition-colors">Manage All</button>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 border border-slate-100 rounded-lg flex items-center gap-4 bg-slate-50">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Salesforce.com_logo.png" style="height:24px; filter: grayscale(100%);" alt="CRM Logo">
+                    <div class="flex-1">
+                        <p class="text-sm font-bold">Salesforce (Production)</p>
+                        <p class="text-[10px] text-green-600 font-bold tracking-widest mt-1 uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Synced 2m ago</p>
+                    </div>
+                </div>
+                <div class="p-4 border border-slate-100 rounded-lg flex items-center gap-4 bg-slate-50">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Outlook_%282018%E2%80%93present%29.svg" style="height:24px; filter: grayscale(100%);" alt="Mail Logo">
+                    <div class="flex-1">
+                        <p class="text-sm font-bold">Microsoft Exchange</p>
+                        <p class="text-[10px] text-green-600 font-bold tracking-widest mt-1 uppercase flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Real-time Sync</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="flex justify-end pt-4">
+            <button class="px-6 py-2.5 bg-primary text-white font-bold rounded-lg hover:opacity-90 transition-opacity shadow-sm">Save Changes</button>
+        </div>
+
+    </div>
+</main>
+</div>
+</body></html>

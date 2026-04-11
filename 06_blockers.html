@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blockers Hub | Sovereign Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#9f403d",
+                        "outline": "#737c81",
+                        "surface-container-low": "#f1f4f7",
+                        "on-surface-variant": "#586065",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-primary": "#f8f7ff",
+                        "background": "#f8f9fb",
+                        "on-surface": "#2b3438",
+                        "surface-container": "#eaeef2",
+                        "primary": "#0c56d0",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#624ac3",
+                        "secondary": "#525f7f"
+                    },
+                    "fontFamily": {
+                        "inter": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-accent-border {
+            border-left: 3px solid #624ac3;
+        }
+        .glass-ai {
+            background: rgba(154, 131, 255, 0.05);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed inset-y-0 left-0 w-64 z-50 bg-slate-50 dark:bg-slate-900 border-none flex flex-col p-6 space-y-2">
+<div class="mb-10 px-4">
+<h1 class="text-lg font-black tracking-tighter text-slate-900 dark:text-white uppercase">Sovereign Ledger</h1>
+<p class="font-inter text-sm antialiased text-slate-500 dark:text-slate-400">Enterprise Terminal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="index.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-sm antialiased">Dashboard</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="groups">groups</span>
+<span class="font-inter text-sm antialiased">Customers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="assignment">assignment</span>
+<span class="font-inter text-sm antialiased">Tasks</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="03_ai_meeting_brief.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="calendar_today">calendar_today</span>
+<span class="font-inter text-sm antialiased">Meetings</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="05_documents_workbench.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="description">description</span>
+<span class="font-inter text-sm antialiased">Documents</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="04_post_meeting_follow_up.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="shortcut">shortcut</span>
+<span class="font-inter text-sm antialiased">Follow-ups</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-blue-700 dark:text-blue-400 font-bold flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-950/50 rounded-md shadow-sm" href="06_blockers.html">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+<span class="font-inter text-sm antialiased">Blockers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="07_settings.html">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;" data-icon="settings">settings</span>
+<span class="font-inter text-sm antialiased">Settings</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-6 border-t border-slate-200 dark:border-slate-800">
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help_outline</span>
+<span class="font-inter text-sm antialiased">Support</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 transition-all" href="javascript:void(0)">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="font-inter text-sm antialiased">Sign Out</span>
+</a>
+</div>
+</aside>
+
+<div class="flex-1 flex flex-col min-w-0 ml-64">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 z-40 bg-white dark:bg-slate-950 flex items-center justify-between px-8 w-full border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">Sovereign Ledger</span>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-slate-400 text-sm" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-surface-container-low border-none rounded-lg py-1.5 pl-10 pr-4 font-inter text-sm antialiased tracking-tight w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search workflow..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 cursor-pointer text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900 rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-slate-200 overflow-hidden ml-2 ring-2 ring-slate-100 cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABQ0DXtMzQpmD_B3PgTjlNcOuPXHTJVxHiL855LqFmRT030nbR22XDf0Mm6dmaK-w_ArPXyJgn6Qqy4DAjKXByx6I--mY_qyTEoXZqs2ftfg0PkAQ9X3u6y6TMZg3yuPhuMN84NPtf25SZ6NJRM5chG-CIZ-Hic99yCrZ4FDB_pa7L7JA6B9WHr1fhGBz5X-SO5WMavvtbXIfc8BpgnaBCZVlAegIjRG1CFfF69Ae3C2SVC7wRC3Pg6I5I6omb58B2YbC7E6ag-A"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 p-8 space-y-8 max-w-[1600px] mx-auto w-full">
+<div class="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-8">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Blockers Command Center</h2>
+<p class="text-on-surface-variant text-sm">Manage and resolve internal operational bottlenecks.</p>
+</div>
+<div class="flex gap-4">
+    <div class="bg-white p-4 rounded-xl border border-surface-container shadow-sm min-w-[140px]">
+        <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Active Blockers</span>
+        <div class="text-3xl font-black text-on-surface">12</div>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-surface-container shadow-sm min-w-[140px]">
+        <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Critical Escalations</span>
+        <div class="text-3xl font-black text-error">3</div>
+    </div>
+    <div class="bg-white p-4 rounded-xl border border-surface-container shadow-sm min-w-[140px]">
+        <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Avg Resolution</span>
+        <div class="flex items-end gap-1">
+            <span class="text-3xl font-black text-on-surface">3.4</span>
+            <span class="text-sm font-bold text-slate-400 mb-1"> Days</span>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- AI Triage Priority -->
+<section class="bg-white rounded-2xl shadow-sm border border-slate-100 ai-accent-border glass-ai p-6 mb-8">
+    <div class="flex items-center gap-2 mb-6">
+        <span class="material-symbols-outlined text-tertiary">auto_awesome</span>
+        <h3 class="text-sm font-black uppercase tracking-widest text-tertiary">AI Triage: Action Required</h3>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-error/20 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+            <div class="flex justify-between items-start mb-3">
+                <span class="text-[10px] font-bold text-error uppercase tracking-widest bg-error/10 px-2 py-0.5 rounded">Compliance</span>
+                <span class="text-[10px] text-slate-500 font-bold">2d Elapsed</span>
+            </div>
+            <h4 class="font-bold text-on-surface mb-2">Meridian Inc. Renewal At Risk</h4>
+            <p class="text-xs text-on-surface-variant leading-relaxed mb-4">The final KYC update is pending review by the compliance team. This is actively blocking the $2.1M Q4 renewal.</p>
+            <button class="w-full py-2 bg-error text-white text-xs font-bold uppercase tracking-wide rounded hover:bg-error/90 transition-colors">Escalate to VP Compliance</button>
+        </div>
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-amber-500/20 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+            <div class="flex justify-between items-start mb-3">
+                <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest bg-amber-500/10 px-2 py-0.5 rounded">Credit Review</span>
+                <span class="text-[10px] text-slate-500 font-bold">4d Elapsed</span>
+            </div>
+            <h4 class="font-bold text-on-surface mb-2">TechVentures Line Increase</h4>
+            <p class="text-xs text-on-surface-variant leading-relaxed mb-4">Underwriting needs a revised EBITDA forecast incorporating the new DACH acquisitions before approving the facility upsize.</p>
+            <button class="w-full py-2 bg-on-surface text-white text-xs font-bold uppercase tracking-wide rounded hover:bg-on-surface/90 transition-colors">Provide Market Summary</button>
+        </div>
+    </div>
+</section>
+
+<!-- Blockers Queue List -->
+<section class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+<div class="p-6 border-b border-surface-container flex justify-between items-center bg-white">
+<h3 class="text-xs uppercase font-black tracking-widest text-slate-900">Active Queue</h3>
+<div class="flex gap-2">
+<input class="bg-surface-container-low border-none rounded py-1 px-3 text-xs focus:ring-1 focus:ring-primary w-48" placeholder="Filter blockers..." type="text"/>
+<select class="bg-surface-container-low border-none rounded py-1 px-3 text-xs font-bold text-slate-600 focus:ring-1 focus:ring-primary cursor-pointer">
+<option>All Departments</option>
+<option>Compliance</option>
+<option>Underwriting</option>
+<option>Legal</option>
+</select>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-slate-50 text-[10px] font-black uppercase text-slate-500 tracking-wider">
+<tr>
+<th class="px-6 py-4">Client / Deal</th>
+<th class="px-6 py-4">Blocking Department</th>
+<th class="px-6 py-4">Issue Description</th>
+<th class="px-6 py-4 text-center">Time Elapsed</th>
+<th class="px-6 py-4 text-right">Next Best Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5">
+    <p class="font-bold text-on-surface">Global Logistics LLC</p>
+    <p class="text-[10px] text-slate-500 uppercase mt-0.5">$15.5M Facility Expansion</p>
+</td>
+<td class="px-6 py-5">
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-medium text-slate-700 border border-slate-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Legal
+    </span>
+</td>
+<td class="px-6 py-5">
+    <p class="text-on-surface-variant text-xs leading-snug">Waiting on Master Services Agreement counter-signatures.</p>
+</td>
+<td class="px-6 py-5 text-center">
+    <span class="font-mono text-sm font-bold text-error">5 Days</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+    <button class="px-4 py-1.5 bg-primary text-on-primary text-[10px] font-bold rounded hover:opacity-90 transition-all uppercase shadow-sm">Auto-Draft Nudge</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5">
+    <p class="font-bold text-on-surface">Quantum Solutions Group</p>
+    <p class="text-[10px] text-slate-500 uppercase mt-0.5">FX Hedging Agreement</p>
+</td>
+<td class="px-6 py-5">
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-medium text-slate-700 border border-slate-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Underwriting
+    </span>
+</td>
+<td class="px-6 py-5">
+    <p class="text-on-surface-variant text-xs leading-snug">Analyst needs clarification on collateral for subsidiaries.</p>
+</td>
+<td class="px-6 py-5 text-center">
+    <span class="font-mono text-sm font-bold text-slate-700">1 Day</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+    <button class="px-4 py-1.5 bg-white border border-primary text-primary text-[10px] font-bold rounded hover:bg-primary/5 transition-all uppercase">Provide Clarification</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5">
+    <p class="font-bold text-on-surface">Alpha Returns</p>
+    <p class="text-[10px] text-slate-500 uppercase mt-0.5">Account Opening</p>
+</td>
+<td class="px-6 py-5">
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-low text-xs font-medium text-slate-700 border border-slate-200">
+        <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Admin
+    </span>
+</td>
+<td class="px-6 py-5">
+    <p class="text-on-surface-variant text-xs leading-snug">Tax Residence Certificate rejected due to blurry scan.</p>
+</td>
+<td class="px-6 py-5 text-center">
+    <span class="font-mono text-sm font-bold text-slate-700">2 Days</span>
+</td>
+<td class="px-6 py-5 text-right space-x-2">
+    <button class="px-4 py-1.5 bg-primary text-on-primary text-[10px] font-bold rounded hover:opacity-90 transition-all uppercase shadow-sm">Notify Client</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</main>
+</div>
+</body></html>
