@@ -1,0 +1,41 @@
+﻿        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ai-accent {
+            border-left: 2px solid #624ac3;
+        }
+        .tabular-numbers {
+            font-variant-numeric: tabular-nums;
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="index.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-inter text-sm antialiased">Dashboard</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="02_customer_360.html">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-inter text-sm antialiased">Customers</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="11_tasks.html">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-inter text-sm antialiased">Tasks</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="03_ai_meeting_brief.html">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-inter text-sm antialiased">Meetings</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="05_documents_workbench.html">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-inter text-sm antialiased">Documents</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-blue-700 dark:text-blue-400 font-bold flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-950/50 rounded-md shadow-sm" href="04_post_meeting_follow_up.html">
+<span class="material-symbols-outlined" data-icon="shortcut">shortcut</span>
+<span class="font-inter text-sm antialiased">Follow-ups</span>
+</a>
+<a class="cursor-pointer hover:translate-x-1 transform transition-transform text-slate-500 dark:text-slate-400 flex items-center gap-3 px-4 py-3 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-200" href="06_blockers.html">
+<span class="material-symbols-outlined" data-icon="block">block</span>
+<span class="font-inter text-sm antialiased">Blockers</span>
+</a>
